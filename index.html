@@ -110,7 +110,8 @@ section{padding:5rem 1.25rem}
 .acard p{font-size:.88rem;color:var(--m);line-height:1.78}
 
 /* ── GALERIE ── */
-#galerie{background:var(--bg)}
+#galerie{background:var(--bg);position:relative;overflow:hidden}
+#galerie::before{content:'';position:absolute;inset:0;pointer-events:none;opacity:.045;background-image:radial-gradient(circle,var(--a) 1.5px,transparent 1.5px);background-size:32px 32px}
 .g-grid{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-top:1.5rem}
 .gi{position:relative;aspect-ratio:4/3;overflow:hidden;border-radius:8px;cursor:pointer;background:var(--s2)}
 .gi.w{grid-column:span 2;aspect-ratio:16/7}
@@ -147,9 +148,9 @@ section{padding:5rem 1.25rem}
 .ev-year{font-size:.78rem;color:var(--m);margin-top:.1rem}
 .ev-info{flex:1;display:flex;flex-direction:column;justify-content:center;gap:.45rem}
 .ev-title{font-size:clamp(1rem,3.5vw,1.25rem);font-weight:800;color:var(--t);line-height:1.25}
-.ev-detail{font-size:.86rem;color:#bbb;display:flex;align-items:baseline;gap:.5rem;flex-wrap:wrap}
+.ev-detail{display:flex;align-items:center;gap:.65rem;font-size:.86rem;color:#bbb}
+.ev-icon{flex-shrink:0;width:1.2rem;text-align:center;font-style:normal}
 .ev-detail strong{color:var(--t);font-weight:600}
-.ev-addr{color:var(--m);font-size:.82rem}
 .ev-footer{padding:.9rem 1.4rem;border-top:1px solid var(--bd);display:flex;align-items:center;gap:.75rem;flex-wrap:wrap}
 .ev-more{text-align:center;color:var(--m);font-size:.82rem;margin-top:.5rem}
 .ev-more a{color:var(--a);border-bottom:1px solid rgba(249,178,53,.3)}
@@ -219,12 +220,6 @@ footer a:hover{color:var(--a2)}
 .lm-body a{color:var(--a)}
 
 /* ── MOBILE OVERRIDES ── */
-@media(max-width:767px){
-  /* Termine: Adresse unter Ort */
-  .ev-addr{display:block;margin-left:0;margin-top:.15rem}
-  .ev-detail{flex-direction:column;gap:.2rem}
-  .ev-detail>*{display:flex;align-items:baseline;gap:.4rem}
-}
 
 /* ── DESKTOP ── */
 @media(min-width:640px){.frow{grid-template-columns:1fr 1fr}}
@@ -481,15 +476,16 @@ async function loadTermine(){
     var rows=await sbGet('termine','select=*&order=datum.asc');
     var future=rows.filter(function(t){return isFuture(t.datum);});
     if(!future.length){el.innerHTML='<div class="no-ev">Weitere Termine folgen in Kürze – schaut bald wieder rein!</div>';return;}
-    el.innerHTML=future.map(function(t){
+    el.innerHTML=future.map(function(t,i){
       var maps=t.maps_link||('https://maps.google.com/?q='+encodeURIComponent((t.adresse||t.ort||'')));
-      var ortHtml=t.ort?'<div class="ev-detail"><span>📍</span><div><strong>'+esc(t.ort)+'</strong>'+(t.adresse?'<span class="ev-addr">'+esc(t.adresse)+'</span>':'')+'</div></div>':'';
-      var zeitHtml=t.uhrzeit_von?'<div class="ev-detail"><span>🕖</span><strong>'+esc(t.uhrzeit_von)+(t.uhrzeit_bis?' – '+esc(t.uhrzeit_bis):'')+' Uhr</strong></div>':'';
+      var zeitHtml=t.uhrzeit_von?'<div class="ev-detail"><span class="ev-icon">🕖</span><strong>'+esc(t.uhrzeit_von)+(t.uhrzeit_bis?' – '+esc(t.uhrzeit_bis):'')+' Uhr</strong></div>':'';
+      var ortHtml=t.ort?'<div class="ev-detail"><span class="ev-icon">📍</span><strong>'+esc(t.ort)+'</strong></div>':'';
+      var adrHtml=t.adresse?'<div class="ev-detail"><span class="ev-icon">📌</span><span>'+esc(t.adresse)+'</span></div>':'';
       return'<div class="ev-card">'+
-        '<div class="ev-header"><div class="ev-badge"><span class="ev-dot"></span>Demnächst</div>'+(t.eintritt_frei?'<span class="ev-free">Freier Eintritt</span>':'')+'</div>'+
+        '<div class="ev-header">'+(i===0?'<div class="ev-badge"><span class="ev-dot"></span>Demnächst</div>':'<div></div>')+(t.eintritt_frei?'<span class="ev-free">Freier Eintritt</span>':'')+'</div>'+
         '<div class="ev-body">'+
           '<div class="ev-date-col"><div class="ev-day">'+fmtDay(t.datum)+'.</div><div class="ev-month">'+fmtMonth(t.datum)+'</div><div class="ev-year">'+fmtYear(t.datum)+'</div></div>'+
-          '<div class="ev-info"><div class="ev-title">'+esc(t.titel)+'</div>'+zeitHtml+ortHtml+'</div>'+
+          '<div class="ev-info"><div class="ev-title">'+esc(t.titel)+'</div>'+zeitHtml+ortHtml+adrHtml+'</div>'+
         '</div>'+
         '<div class="ev-footer"><a href="'+maps+'" target="_blank" rel="noopener" class="btn btn-p" style="font-size:.82rem;padding:.52rem 1.15rem">Route planen ↗</a></div>'+
       '</div>';
