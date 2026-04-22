@@ -35,7 +35,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 
 /* ── NAV ── */
 nav{position:fixed;inset:0 0 auto;z-index:999;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 1.25rem;background:rgba(9,8,10,.93);backdrop-filter:blur(20px);border-bottom:1px solid var(--bd)}
-.nav-brand{font-size:.85rem;font-weight:900;color:var(--a);letter-spacing:.12em;text-transform:uppercase}
+.nav-logo{height:46px;width:auto;object-fit:contain;filter:drop-shadow(0 1px 6px rgba(0,0,0,.4))}
 .nav-ul{display:none;list-style:none;gap:2rem}
 .nav-ul a{font-size:.8rem;text-transform:uppercase;letter-spacing:.13em;color:#d0ccd8;font-weight:500;transition:color .2s}
 .nav-ul a:hover{color:var(--a)}
@@ -225,7 +225,7 @@ footer a:hover{color:var(--a2)}
 @media(min-width:640px){.frow{grid-template-columns:1fr 1fr}}
 @media(min-width:768px){
   nav{padding:0 2.5rem}
-  .nav-ul{display:flex}
+  .nav-logo{height:54px}
   .nav-book{display:inline-block}
   .hbg{display:none}
   section{padding:6.5rem 2rem}
@@ -264,7 +264,9 @@ footer a:hover{color:var(--a2)}
 
 <!-- NAV -->
 <nav>
-  <a href="#hero" class="nav-brand">Schwansinn</a>
+  <a href="#hero">
+    <img class="nav-logo" src="https://hqkpckckzegxqghdchrd.supabase.co/storage/v1/object/public/bilder/Logo-Schwansinn.svg" alt="Blaskapelle Schwansinn" onerror="this.outerHTML='<span class=\'nav-brand\'>Schwansinn</span>'">
+  </a>
   <ul class="nav-ul">
     <li><a href="#hero">Start</a></li>
     <li><a href="#about">Über uns</a></li>
