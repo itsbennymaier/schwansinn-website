@@ -15,15 +15,11 @@
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --a:#f9b235;--a2:#ffca5a;
-  --bg:#080808;--s1:#101010;--s2:#181818;
-  --bd:#252525;--t:#f0ede6;--m:#999;--r:10px;
-  /* ── HERO-BILD: Lade dein Gruppenfoto in Supabase Storage hoch
-     und ersetze diese URL mit dem erhaltenen Link ── */
-  --hero-img: url('https://hqkpckckzegxqghdchrd.supabase.co/storage/v1/object/public/bilder/hero-bg3.jpg');
-  /* ── LOGO: Lade deine logo.svg in Supabase Storage hoch
-     und ersetze diese URL ── */
-  --logo-url: 'https://www.schwansinn.de/images/team/logo-schwansinn.png';
+  --a:#f9b235;--a2:#ffca5a;--a3:rgba(249,178,53,.12);
+  --bg:#09080a;--s1:#111012;--s2:#1a181c;
+  --bd:#28252b;--t:#f2efe8;--m:#8a8690;--r:10px;
+  --logo: url('https://hqkpckckzegxqghdchrd.supabase.co/storage/v1/object/public/bilder/Logo-Schwansinn.svg');
+  --hero: url('https://hqkpckckzegxqghdchrd.supabase.co/storage/v1/object/public/bilder/hero-bg3.jpg');
 }
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{background:var(--bg);color:var(--t);font-family:'Segoe UI',system-ui,sans-serif;line-height:1.65;overflow-x:hidden;font-size:16px}
@@ -31,18 +27,18 @@ img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 button{font-family:inherit;cursor:pointer;border:none;background:none}
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
-.rv{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s ease}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
 .rv.in{opacity:1;transform:none}
 .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
 
 /* ── NAV ── */
-nav{position:fixed;inset:0 0 auto;z-index:999;height:62px;display:flex;align-items:center;justify-content:space-between;padding:0 1.25rem;background:rgba(8,8,8,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--bd)}
-.nav-logo{height:36px;width:auto;object-fit:contain}
+nav{position:fixed;inset:0 0 auto;z-index:999;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 1.25rem;background:rgba(9,8,10,.93);backdrop-filter:blur(20px);border-bottom:1px solid var(--bd)}
+.nav-logo{height:44px;width:auto;object-fit:contain}
 .nav-ul{display:none;list-style:none;gap:2rem}
-.nav-ul a{font-size:.8rem;text-transform:uppercase;letter-spacing:.12em;color:#ccc;transition:color .2s;font-weight:500}
+.nav-ul a{font-size:.8rem;text-transform:uppercase;letter-spacing:.13em;color:#d0ccd8;font-weight:500;transition:color .2s}
 .nav-ul a:hover{color:var(--a)}
 .nav-r{display:flex;align-items:center;gap:.75rem}
-.nav-book{display:none;background:var(--a);color:#000;font-size:.8rem;font-weight:800;padding:.42rem 1.1rem;border-radius:5px;transition:background .2s;letter-spacing:.04em}
+.nav-book{display:none;background:var(--a);color:#000;font-size:.78rem;font-weight:800;padding:.44rem 1.15rem;border-radius:5px;transition:background .2s;letter-spacing:.04em}
 .nav-book:hover{background:var(--a2)}
 .hbg{display:flex;flex-direction:column;gap:5px;padding:8px}
 .hbg span{display:block;width:22px;height:2px;background:#ddd;border-radius:2px;transition:all .28s}
@@ -50,113 +46,120 @@ nav{position:fixed;inset:0 0 auto;z-index:999;height:62px;display:flex;align-ite
 .hbg.o span:nth-child(2){opacity:0;transform:scaleX(0)}
 .hbg.o span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 
-/* ── MOBILE MENU ── */
+/* ── MOB MENU ── */
 .mob{position:fixed;inset:0;z-index:998;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2.25rem;opacity:0;pointer-events:none;transition:opacity .3s}
 .mob.o{opacity:1;pointer-events:all}
-.mob a{font-size:1.65rem;font-weight:800;color:var(--t);transition:color .2s}
+.mob a{font-size:1.6rem;font-weight:800;color:var(--t);transition:color .2s}
 .mob a:hover{color:var(--a)}
-.mob-cta{background:var(--a)!important;color:#000!important;padding:.75rem 2.5rem;border-radius:8px;margin-top:.5rem;font-size:1.3rem!important}
+.mob-cta{background:var(--a)!important;color:#000!important;padding:.75rem 2.5rem;border-radius:8px;font-size:1.3rem!important}
 
 /* ── HERO ── */
 #hero{
   min-height:100svh;
   display:flex;flex-direction:column;align-items:center;justify-content:center;
-  text-align:center;padding:70px 1.5rem 3rem;
-  position:relative;overflow:hidden;
-  background:linear-gradient(rgba(8,8,8,.6),rgba(8,8,8,.72)),var(--hero-img);
-  background-size:cover;background-position:center;background-attachment:fixed;
+  text-align:center;padding:80px 1.5rem 4rem;
+  position:relative;overflow:hidden;background:var(--bg);
 }
-.h-glow{position:absolute;top:40%;left:50%;translate:-50% -50%;width:min(500px,120vw);height:min(500px,120vw);background:radial-gradient(circle,rgba(249,178,53,.08) 0%,transparent 68%);border-radius:50%;animation:glow 6s ease-in-out infinite;pointer-events:none}
-@keyframes glow{0%,100%{opacity:.6;transform:scale(1)}50%{opacity:1;transform:scale(1.08)}}
-.h-deco{position:absolute;bottom:0;left:0;right:0;height:80px;background:linear-gradient(transparent,var(--bg));pointer-events:none}
-.h-logo{height:clamp(100px,22vw,180px);width:auto;margin:0 auto 1.75rem;position:relative;z-index:1;animation:fadeup .6s ease both .08s;filter:drop-shadow(0 4px 32px rgba(0,0,0,.5))}
-.h-slogan{font-size:clamp(.95rem,3vw,1.15rem);color:rgba(240,237,230,.85);max-width:500px;margin:0 auto 2rem;animation:fadeup .6s ease both .32s;line-height:1.8;position:relative;z-index:1;font-style:italic;letter-spacing:.01em}
-.h-btns{display:flex;flex-wrap:wrap;gap:.75rem;justify-content:center;animation:fadeup .6s ease both .48s;position:relative;z-index:1}
-.btn{display:inline-block;padding:.75rem 1.75rem;border-radius:6px;font-weight:700;font-size:.9rem;transition:all .2s;letter-spacing:.02em}
-.btn-p{background:var(--a);color:#000}.btn-p:hover{background:var(--a2);transform:translateY(-2px)}
-.btn-o{border:1px solid rgba(255,255,255,.3);color:#fff;backdrop-filter:blur(4px)}.btn-o:hover{border-color:var(--a);color:var(--a);transform:translateY(-2px)}
-.h-stats{display:flex;gap:2.5rem;margin-top:3.5rem;padding-top:2.5rem;border-top:1px solid rgba(255,255,255,.12);justify-content:center;animation:fadeup .6s ease both .62s;position:relative;z-index:1}
-.stat-n{font-size:2rem;font-weight:900;color:var(--a);line-height:1;display:block}
-.stat-l{font-size:.68rem;text-transform:uppercase;letter-spacing:.14em;color:rgba(240,237,230,.65);margin-top:.25rem}
-@keyframes fadeup{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.hero-img{
+  position:absolute;inset:0;
+  background:var(--hero) center center / contain no-repeat;
+  opacity:.55;
+}
+.hero-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to bottom,rgba(9,8,10,.5) 0%,rgba(9,8,10,.3) 40%,rgba(9,8,10,.75) 100%);
+}
+.hero-content{position:relative;z-index:1;width:100%;max-width:680px}
+.h-logo{height:clamp(110px,24vw,200px);width:auto;margin:0 auto 1.5rem;filter:drop-shadow(0 4px 32px rgba(0,0,0,.6))}
+.h-eyebrow{font-size:.72rem;text-transform:uppercase;letter-spacing:.25em;color:var(--a);margin-bottom:1rem;opacity:.9;animation:fadeup .55s ease both .1s}
+.h-slogan{font-size:clamp(1rem,3.5vw,1.2rem);color:rgba(242,239,232,.88);max-width:480px;margin:0 auto 2.25rem;animation:fadeup .6s ease both .3s;line-height:1.82;font-style:italic;letter-spacing:.01em}
+.h-btns{display:flex;flex-wrap:wrap;gap:.75rem;justify-content:center;animation:fadeup .6s ease both .46s;margin-bottom:3.5rem}
+.btn{display:inline-block;padding:.78rem 1.8rem;border-radius:6px;font-weight:700;font-size:.9rem;transition:all .22s;letter-spacing:.02em}
+.btn-p{background:var(--a);color:#000}.btn-p:hover{background:var(--a2);transform:translateY(-2px);box-shadow:0 8px 24px rgba(249,178,53,.25)}
+.btn-o{border:1px solid rgba(255,255,255,.28);color:#fff;backdrop-filter:blur(4px)}.btn-o:hover{border-color:var(--a);color:var(--a);transform:translateY(-2px)}
+.h-stats{display:flex;gap:2.5rem;justify-content:center;animation:fadeup .6s ease both .6s;position:relative;z-index:1}
+.stat-n{font-size:2.1rem;font-weight:900;color:var(--a);line-height:1;display:block}
+.stat-l{font-size:.67rem;text-transform:uppercase;letter-spacing:.14em;color:rgba(242,239,232,.6);margin-top:.25rem}
+@keyframes fadeup{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes glow{0%,100%{opacity:.5;transform:scale(1)}50%{opacity:.85;transform:scale(1.06)}}
 
 /* ── MARQUEE ── */
-.mq-w{overflow:hidden;background:var(--s1);border-top:1px solid var(--bd);border-bottom:1px solid var(--bd);padding:.9rem 0}
+.mq-w{overflow:hidden;background:var(--s1);border-top:1px solid var(--bd);border-bottom:1px solid var(--bd);padding:.85rem 0}
 .mq-i{display:flex;width:max-content;animation:mq 52s linear infinite}
-.mq-i span{font-size:.72rem;text-transform:uppercase;letter-spacing:.18em;color:var(--m);padding:0 1.5rem;white-space:nowrap}
+.mq-i span{font-size:.7rem;text-transform:uppercase;letter-spacing:.2em;color:var(--m);padding:0 1.5rem;white-space:nowrap}
 .mq-i span.dot{color:var(--a);padding:0}
 @keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
-/* ── SECTIONS ── */
-section{padding:4.5rem 1.25rem}
+/* ── SECTION BASE ── */
+section{padding:5rem 1.25rem}
 .ctr{max-width:1100px;margin:0 auto}
-.s-eye{font-size:.7rem;text-transform:uppercase;letter-spacing:.22em;color:var(--a);margin-bottom:.5rem}
-.s-ttl{font-size:clamp(1.8rem,5vw,2.75rem);font-weight:900;letter-spacing:-.03em;line-height:1.1}
-.s-divider{display:flex;align-items:center;gap:1rem;margin:1rem 0 2.25rem}
-.s-divider::before,.s-divider::after{content:'';flex:1;height:1px;background:var(--bd)}
-.s-divider-note{font-size:1rem;color:var(--a);opacity:.7}
-.db-loading{color:var(--m);font-size:.88rem;text-align:center;padding:2.5rem}
-.db-empty{color:var(--m);font-size:.88rem;text-align:center;padding:2rem;background:var(--s2);border-radius:var(--r)}
+.s-label{font-size:.68rem;text-transform:uppercase;letter-spacing:.25em;color:var(--a);margin-bottom:.6rem;display:flex;align-items:center;gap:.75rem}
+.s-label::before{content:'♪';font-size:.85rem}
+.s-ttl{font-size:clamp(1.9rem,5.5vw,2.9rem);font-weight:900;letter-spacing:-.035em;line-height:1.08;margin-bottom:2rem}
+.s-rule{width:3rem;height:2px;background:var(--a);border-radius:2px;margin-bottom:2.25rem}
 
 /* ── ABOUT ── */
-#about{background:var(--s1)}
-.about-body p{color:var(--m);line-height:1.88;font-size:.94rem;margin-bottom:1rem}
+#about{background:var(--s1);position:relative;overflow:hidden}
+.about-staff{
+  position:absolute;inset:0;pointer-events:none;opacity:.03;
+  background-image:repeating-linear-gradient(transparent,transparent 28px,var(--a) 28px,var(--a) 30px);
+}
+.about-body p{color:var(--m);line-height:1.9;font-size:.94rem;margin-bottom:1.1rem}
 .acards{display:grid;gap:.7rem}
-.acard{background:var(--s2);border:1px solid var(--bd);border-left:3px solid var(--a);border-radius:var(--r);padding:1.15rem 1.4rem;transition:transform .2s}
-.acard:hover{transform:translateX(4px)}
-.acard h4{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--a);margin-bottom:.4rem}
+.acard{background:rgba(249,178,53,.04);border:1px solid var(--bd);border-left:3px solid var(--a);border-radius:var(--r);padding:1.2rem 1.4rem;transition:transform .22s,background .22s}
+.acard:hover{transform:translateX(5px);background:rgba(249,178,53,.07)}
+.acard h4{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--a);margin-bottom:.4rem}
 .acard p{font-size:.88rem;color:var(--m);line-height:1.78}
 
 /* ── GALERIE ── */
 #galerie{background:var(--bg)}
-.g-grid{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-top:1.5rem;min-height:200px}
+.g-grid{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-top:1.5rem}
 .gi{position:relative;aspect-ratio:4/3;overflow:hidden;border-radius:8px;cursor:pointer;background:var(--s2)}
 .gi.w{grid-column:span 2;aspect-ratio:16/7}
-.gi img{width:100%;height:100%;object-fit:cover;transition:transform .45s ease}
-.gi:hover img{transform:scale(1.06)}
-.go{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.85) 0%,transparent 55%);display:flex;flex-direction:column;justify-content:flex-end;padding:.8rem .9rem;opacity:0;transition:opacity .28s}
+.gi img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.gi:hover img{transform:scale(1.07)}
+.go{position:absolute;inset:0;background:linear-gradient(to top,rgba(9,8,10,.88) 0%,transparent 55%);display:flex;flex-direction:column;justify-content:flex-end;padding:.85rem .95rem;opacity:0;transition:opacity .3s}
 .gi:hover .go{opacity:1}
 .go h4{font-size:.83rem;font-weight:600;color:#fff}
 .go span{font-size:.7rem;color:var(--a)}
 
 /* ── LIGHTBOX ── */
-.lb{position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,.96);display:flex;align-items:center;justify-content:center;padding:1.25rem;opacity:0;pointer-events:none;transition:opacity .3s}
+.lb{position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,.97);display:flex;align-items:center;justify-content:center;padding:1.25rem;opacity:0;pointer-events:none;transition:opacity .3s}
 .lb.o{opacity:1;pointer-events:all}
 .lb img{max-width:100%;max-height:88vh;object-fit:contain;border-radius:6px}
-.lb-x{position:absolute;top:.875rem;right:1.1rem;font-size:1.7rem;color:var(--m);cursor:pointer;transition:color .2s}
-.lb-x:hover{color:var(--t)}
+.lb-x{position:absolute;top:1rem;right:1.25rem;font-size:1.8rem;color:#666;cursor:pointer;transition:color .2s;line-height:1}
+.lb-x:hover{color:#fff}
 .lb-cap{position:absolute;bottom:1.25rem;left:50%;translate:-50%;text-align:center;white-space:nowrap}
 .lb-cap strong{font-size:.88rem;display:block;color:#fff}
 .lb-cap span{font-size:.72rem;color:var(--a)}
 
 /* ── TERMINE ── */
 #termine{background:var(--s1)}
-.ev-spot{background:linear-gradient(135deg,rgba(249,178,53,.05) 0%,transparent 65%);border:1px solid rgba(249,178,53,.18);border-top:2px solid var(--a);border-radius:14px;padding:1.75rem;margin-bottom:1rem;position:relative;overflow:hidden}
-.ev-top-row{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem;margin-bottom:1.5rem}
-.ev-pill{display:inline-flex;align-items:center;gap:.45rem;font-size:.68rem;text-transform:uppercase;letter-spacing:.14em;color:var(--a);background:rgba(249,178,53,.08);border:1px solid rgba(249,178,53,.2);padding:.3rem .85rem;border-radius:20px}
-.ev-pill-dot{width:6px;height:6px;border-radius:50%;background:var(--a);animation:blink 1.6s ease-in-out infinite;flex-shrink:0}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
-.ev-cdwn{font-size:.85rem;color:var(--m)}
-.ev-cdwn strong{color:var(--a);font-size:1.1rem;font-weight:900}
-.ev-body{display:flex;align-items:flex-start;gap:1.5rem;margin-bottom:1.75rem}
-.ev-datebox{text-align:center;flex-shrink:0;min-width:64px}
-.ev-bday{font-size:clamp(3rem,10vw,4.5rem);font-weight:900;color:var(--a);line-height:1}
-.ev-bmonth{font-size:.8rem;text-transform:uppercase;letter-spacing:.16em;color:#bbb;margin-top:.1rem}
-.ev-byear{font-size:.78rem;color:var(--m);margin-top:.1rem}
-.ev-vline{width:1px;background:var(--bd);align-self:stretch;flex-shrink:0;display:none}
-.ev-detail h3{font-size:clamp(1.05rem,3.5vw,1.4rem);font-weight:800;margin-bottom:.65rem;line-height:1.2;color:var(--t)}
-.ev-meta{display:flex;flex-direction:column;gap:.3rem;margin-bottom:.75rem}
-.ev-meta p{font-size:.88rem;color:#bbb;display:flex;align-items:center;gap:.5rem}
-.ev-meta p strong{color:var(--t);font-weight:600}
-.ev-free-tag{display:inline-block;font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;color:#000;background:var(--a);padding:.2rem .7rem;border-radius:4px;font-weight:700;margin-bottom:.75rem}
-.ev-more{text-align:center;color:var(--m);font-size:.82rem;margin-top:.75rem}
+.ev-card{background:var(--s2);border:1px solid var(--bd);border-radius:14px;overflow:hidden;margin-bottom:.85rem;transition:border-color .25s}
+.ev-card:hover{border-color:rgba(249,178,53,.35)}
+.ev-header{background:linear-gradient(135deg,rgba(249,178,53,.08),rgba(249,178,53,.03));border-bottom:1px solid var(--bd);padding:1rem 1.4rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
+.ev-badge{display:inline-flex;align-items:center;gap:.4rem;font-size:.65rem;text-transform:uppercase;letter-spacing:.15em;color:var(--a);background:rgba(249,178,53,.09);border:1px solid rgba(249,178,53,.2);padding:.28rem .75rem;border-radius:20px}
+.ev-dot{width:6px;height:6px;border-radius:50%;background:var(--a);animation:blink 1.6s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.15}}
+.ev-free{font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;color:#000;background:var(--a);padding:.2rem .7rem;border-radius:20px;font-weight:800}
+.ev-body{padding:1.4rem;display:flex;gap:1.25rem;align-items:stretch}
+.ev-date-col{flex-shrink:0;display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:64px;text-align:center;border-right:1px solid var(--bd);padding-right:1.25rem}
+.ev-day{font-size:3rem;font-weight:900;color:var(--a);line-height:1}
+.ev-month{font-size:.72rem;text-transform:uppercase;letter-spacing:.15em;color:#bbb;margin-top:.1rem}
+.ev-year{font-size:.72rem;color:var(--m)}
+.ev-info{flex:1;display:flex;flex-direction:column;justify-content:center;gap:.45rem}
+.ev-title{font-size:clamp(1rem,3.5vw,1.25rem);font-weight:800;color:var(--t);line-height:1.25}
+.ev-detail{font-size:.86rem;color:#bbb;display:flex;align-items:center;gap:.5rem}
+.ev-detail strong{color:var(--t);font-weight:600}
+.ev-footer{padding:.9rem 1.4rem;border-top:1px solid var(--bd);display:flex;align-items:center;gap:.75rem;flex-wrap:wrap}
+.ev-more{text-align:center;color:var(--m);font-size:.82rem;margin-top:.5rem}
 .ev-more a{color:var(--a);border-bottom:1px solid rgba(249,178,53,.3)}
-.no-ev{text-align:center;padding:2.5rem;background:var(--s2);border-radius:var(--r);color:var(--m);font-size:.9rem}
+.no-ev{text-align:center;padding:3rem;background:var(--s2);border-radius:var(--r);color:var(--m)}
 
 /* ── BESETZUNG ── */
 #besetzung{background:var(--bg)}
 .reg{margin-bottom:2.75rem}
-.reg-lbl{font-size:.7rem;text-transform:uppercase;letter-spacing:.18em;color:var(--a);display:flex;align-items:center;gap:.75rem;margin-bottom:.9rem}
+.reg-lbl{font-size:.68rem;text-transform:uppercase;letter-spacing:.2em;color:var(--a);display:flex;align-items:center;gap:.75rem;margin-bottom:.9rem}
 .reg-lbl::after{content:'';flex:1;height:1px;background:var(--bd)}
 .mg{display:grid;grid-template-columns:repeat(2,1fr);gap:.6rem}
 .mc{background:var(--s2);border:1px solid var(--bd);border-radius:10px;overflow:hidden;position:relative;transition:border-color .22s,transform .22s;cursor:pointer}
@@ -164,9 +167,9 @@ section{padding:4.5rem 1.25rem}
 .mc img,.mc-ph{width:100%;aspect-ratio:1;object-fit:cover;object-position:top;display:block;background:var(--bg)}
 .mc-ph{display:flex;align-items:center;justify-content:center;font-size:1.6rem;font-weight:900;color:var(--a)}
 .mc-b{padding:.75rem .9rem}
-.mc-n{font-size:.87rem;font-weight:700;line-height:1.25;color:var(--t)}
-.mc-r{font-size:.72rem;color:var(--a);margin-top:.18rem}
-.mc-ov{position:absolute;inset:0;background:rgba(8,8,8,.93);display:flex;flex-direction:column;justify-content:center;padding:1rem;opacity:0;transition:opacity .25s;pointer-events:none}
+.mc-n{font-size:.87rem;font-weight:700;color:var(--t);line-height:1.25}
+.mc-r{font-size:.7rem;color:var(--a);margin-top:.18rem}
+.mc-ov{position:absolute;inset:0;background:rgba(9,8,10,.93);display:flex;flex-direction:column;justify-content:center;padding:1rem;opacity:0;transition:opacity .25s;pointer-events:none}
 @media(hover:hover) and (pointer:fine){.mc:hover .mc-ov{opacity:1;pointer-events:all}}
 .mc.ta .mc-ov{opacity:1;pointer-events:all}
 .mc-ov .ovn{font-size:.83rem;font-weight:700;color:var(--a);margin-bottom:.4rem}
@@ -174,68 +177,75 @@ section{padding:4.5rem 1.25rem}
 .mc-tap-hint{font-size:.68rem;color:var(--m);text-align:center;margin-bottom:.9rem;display:none}
 
 /* ── KONTAKT ── */
-#kontakt{background:var(--s1)}
-.k-info p{color:var(--m);font-size:.93rem;line-height:1.85;margin-bottom:1.25rem}
-.k-link{display:inline-flex;align-items:center;gap:.6rem;color:var(--a);font-size:.93rem;transition:color .2s;margin-bottom:.5rem}
+#kontakt{background:var(--s1);position:relative;overflow:hidden}
+.kontakt-deco{position:absolute;top:-80px;right:-80px;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(249,178,53,.05),transparent 70%);pointer-events:none}
+.k-info p{color:var(--m);font-size:.93rem;line-height:1.88;margin-bottom:1.25rem}
+.k-link{display:inline-flex;align-items:center;gap:.6rem;color:var(--a);font-size:.93rem;margin-bottom:.5rem;transition:color .2s}
 .k-link:hover{color:var(--a2)}
 .kf{display:grid;gap:.8rem}
 .frow{display:grid;gap:.8rem}
 .fg{display:grid;gap:.3rem}
-.fg label{font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:var(--m);font-weight:600}
-.fg input,.fg select,.fg textarea{background:var(--s2);border:1px solid var(--bd);border-radius:7px;padding:.7rem .95rem;color:var(--t);font-size:.92rem;width:100%;font-family:inherit;transition:border-color .2s;-webkit-appearance:none}
-.fg input:focus,.fg textarea:focus,.fg select:focus{outline:none;border-color:var(--a)}
+.fg label{font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;color:var(--m);font-weight:600}
+.fg input,.fg select,.fg textarea{background:var(--s2);border:1px solid var(--bd);border-radius:7px;padding:.72rem .95rem;color:var(--t);font-size:.92rem;width:100%;font-family:inherit;transition:border-color .2s;-webkit-appearance:none}
+.fg input:focus,.fg select:focus,.fg textarea:focus{outline:none;border-color:var(--a)}
 .fg select{cursor:pointer}
 .fg textarea{min-height:110px;resize:vertical}
-.btn-snd{background:var(--a);color:#000;font-weight:800;font-size:.95rem;border-radius:7px;padding:.85rem;width:100%;transition:background .2s,transform .2s;cursor:pointer;border:none;font-family:inherit;letter-spacing:.02em}
-.btn-snd:hover{background:var(--a2);transform:translateY(-2px)}
-.form-note{font-size:.75rem;color:var(--m);text-align:center;margin-top:.5rem}
+.btn-snd{background:var(--a);color:#000;font-weight:800;font-size:.95rem;border-radius:7px;padding:.88rem;width:100%;transition:background .2s,transform .2s,box-shadow .2s;cursor:pointer;border:none;font-family:inherit}
+.btn-snd:hover{background:var(--a2);transform:translateY(-2px);box-shadow:0 8px 24px rgba(249,178,53,.22)}
+.form-msg{font-size:.8rem;text-align:center;margin-top:.5rem;min-height:1.2rem}
 
 /* ── FOOTER ── */
-footer{background:#040404;border-top:1px solid var(--bd);padding:2.75rem 1.25rem;text-align:center}
-.ft-logo{height:48px;width:auto;margin:0 auto .9rem;filter:drop-shadow(0 2px 8px rgba(0,0,0,.4))}
-footer p{color:var(--m);font-size:.8rem;line-height:2.1}
+footer{background:#050405;border-top:1px solid var(--bd);padding:3rem 1.25rem;text-align:center}
+.ft-logo{height:52px;width:auto;margin:0 auto 1rem;filter:drop-shadow(0 2px 8px rgba(0,0,0,.5))}
+footer p{color:var(--m);font-size:.8rem;line-height:2.2}
 footer a{color:var(--a);transition:color .2s}
 footer a:hover{color:var(--a2)}
-.ft-copy{font-size:.72rem;color:#444;margin-top:1rem}
+.ft-copy{font-size:.72rem;color:#333;margin-top:1.25rem}
 
-/* ── MODAL (Impressum/Datenschutz) ── */
-.lm-bg{position:fixed;inset:0;background:rgba(0,0,0,.82);z-index:3000;display:flex;align-items:flex-end;justify-content:center;padding:0;opacity:0;pointer-events:none;transition:opacity .3s}
+/* ── LEGAL MODAL ── */
+.lm-bg{position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:3000;display:flex;align-items:flex-end;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s}
 .lm-bg.o{opacity:1;pointer-events:all}
-.lm{background:var(--s1);border-top:1px solid var(--bd);border-radius:16px 16px 0 0;width:100%;max-width:780px;max-height:88vh;display:flex;flex-direction:column}
-.lm-head{padding:1.25rem 1.5rem;border-bottom:1px solid var(--bd);display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.lm{background:var(--s1);border-top:1px solid var(--bd);border-radius:16px 16px 0 0;width:100%;max-width:800px;max-height:90vh;display:flex;flex-direction:column}
+.lm-head{padding:1.25rem 1.5rem;border-bottom:1px solid var(--bd);display:flex;align-items:center;justify-content:space-between;flex-shrink:0;position:sticky;top:0;background:var(--s1);z-index:1}
 .lm-head h2{font-size:1rem;font-weight:800}
-.lm-close{font-size:1.5rem;color:var(--m);cursor:pointer;line-height:1;padding:.2rem .4rem;border-radius:4px;transition:color .2s}
+.lm-close{font-size:1.5rem;color:var(--m);cursor:pointer;padding:.2rem .4rem;border-radius:4px;transition:color .2s}
 .lm-close:hover{color:var(--t)}
-.lm-body{padding:1.5rem;overflow-y:auto;font-size:.88rem;color:var(--m);line-height:1.85}
-.lm-body h3{font-size:.85rem;font-weight:700;color:var(--t);margin:1.5rem 0 .4rem;text-transform:uppercase;letter-spacing:.08em}
-.lm-body h3:first-child{margin-top:0}
+.lm-body{padding:1.5rem;overflow-y:auto;font-size:.86rem;color:var(--m);line-height:1.88}
+.lm-body h2{font-size:.9rem;font-weight:700;color:var(--t);margin:1.5rem 0 .5rem;text-transform:uppercase;letter-spacing:.06em}
+.lm-body h2:first-child{margin-top:0}
+.lm-body h3{font-size:.83rem;font-weight:700;color:var(--t);margin:1.25rem 0 .4rem}
 .lm-body p{margin-bottom:.75rem}
+.lm-body ul{padding-left:1.25rem;margin-bottom:.75rem}
+.lm-body li{margin-bottom:.4rem}
 .lm-body a{color:var(--a)}
 
 /* ── DESKTOP ── */
 @media(min-width:640px){.frow{grid-template-columns:1fr 1fr}}
 @media(min-width:768px){
   nav{padding:0 2.5rem}
-  .nav-logo{height:44px}
+  .nav-logo{height:52px}
   .nav-ul{display:flex}
   .nav-book{display:inline-block}
   .hbg{display:none}
-  section{padding:6rem 2rem}
-  .about-wrap{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
-  .g-grid{grid-template-columns:repeat(4,1fr);gap:.65rem}
+  section{padding:6.5rem 2rem}
+  .about-wrap{display:grid;grid-template-columns:1fr 1fr;gap:4.5rem;align-items:start}
+  .g-grid{grid-template-columns:repeat(4,1fr)}
   .mg{grid-template-columns:repeat(auto-fill,minmax(170px,1fr))}
-  .k-wrap{display:grid;grid-template-columns:1fr 1fr;gap:4.5rem;align-items:start}
-  .k-info{margin-bottom:0}
-  .h-stats{gap:4.5rem}
-  .ev-body{gap:2rem}
-  .ev-vline{display:block}
-  .lm{align-self:center;border-radius:16px;max-height:85vh}
+  .k-wrap{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+  .hero-img{background-size:cover;background-attachment:scroll}
+  .h-stats{gap:5rem}
+  .ev-body{gap:1.75rem}
+  .lm{align-self:center;border-radius:16px;max-height:88vh}
   .lm-bg{align-items:center;padding:1.5rem}
+}
+@media(min-width:1024px){
+  .hero-img{background-attachment:fixed}
 }
 </style>
 </head>
 <body>
 
+<!-- MOB MENU -->
 <div class="mob" id="mob">
   <a href="#about" onclick="cm()">Über uns</a>
   <a href="#galerie" onclick="cm()">Galerie</a>
@@ -244,10 +254,10 @@ footer a:hover{color:var(--a2)}
   <a href="#kontakt" class="mob-cta" onclick="cm()">Jetzt buchen</a>
 </div>
 
+<!-- NAV -->
 <nav>
   <a href="#hero">
-    <!-- Logo: Ersetze src mit deiner SVG-URL aus Supabase Storage -->
-    <img class="nav-logo" src="https://www.schwansinn.de/images/team/logo-schwansinn.png" alt="Blaskapelle Schwansinn" onerror="this.outerHTML='<span style=\'font-size:1rem;font-weight:900;color:#f9b235\'>Schwansinn</span>'">
+    <img class="nav-logo" src="https://hqkpckckzegxqghdchrd.supabase.co/storage/v1/object/public/bilder/Logo-Schwansinn.svg" alt="Blaskapelle Schwansinn" onerror="this.outerHTML='<span style=\'font-size:1.1rem;font-weight:900;color:#f9b235\'>Schwansinn</span>'">
   </a>
   <ul class="nav-ul">
     <li><a href="#about">Über uns</a></li>
@@ -264,19 +274,22 @@ footer a:hover{color:var(--a2)}
 
 <!-- HERO -->
 <section id="hero">
-  <div class="h-glow"></div>
-  <div class="h-deco"></div>
-  <h1 class="sr-only">Blaskapelle Schwansinn – Blasmusik aus dem Schwarzwald-Baar-Kreis</h1>
-  <img class="h-logo" src="https://hqkpckckzegxqghdchrd.supabase.co/storage/v1/object/public/bilder/Logo-Schwansinn.svg" alt="Blaskapelle Schwansinn" onerror="this.style.display='none'">
-  <p class="h-slogan">Von Polka bis Schlager – wir treffen immer den richtigen Ton!</p>
-  <div class="h-btns">
-    <a href="#termine" class="btn btn-p">Nächste Auftritte</a>
-    <a href="#kontakt" class="btn btn-o">Anfrage senden</a>
-  </div>
-  <div class="h-stats">
-    <div class="stat"><span class="stat-n" data-cnt="14">0</span><div class="stat-l">Jahre on Stage</div></div>
-    <div class="stat"><span class="stat-n" data-cnt="17">0</span><div class="stat-l">Musikerinnen & Musiker</div></div>
-    <div class="stat"><span class="stat-n">∞</span><div class="stat-l">Spielfreude</div></div>
+  <div class="hero-img"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1 class="sr-only">Blaskapelle Schwansinn – Blasmusik aus dem Schwarzwald-Baar-Kreis</h1>
+    <img class="h-logo rv in" src="https://hqkpckckzegxqghdchrd.supabase.co/storage/v1/object/public/bilder/Logo-Schwansinn.svg" alt="Blaskapelle Schwansinn" onerror="this.style.display='none'">
+    <p class="h-eyebrow">Blasmusik aus dem Schwarzwald-Baar-Kreis · Seit 2012</p>
+    <p class="h-slogan">Von Polka bis Schlager – wir treffen immer den richtigen Ton!</p>
+    <div class="h-btns">
+      <a href="#termine" class="btn btn-p">Nächste Auftritte</a>
+      <a href="#kontakt" class="btn btn-o">Anfrage senden</a>
+    </div>
+    <div class="h-stats">
+      <div class="stat"><span class="stat-n" data-cnt="14">0</span><div class="stat-l">Jahre on Stage</div></div>
+      <div class="stat"><span class="stat-n" data-cnt="17">0</span><div class="stat-l">Musikerinnen & Musiker</div></div>
+      <div class="stat"><span class="stat-n">∞</span><div class="stat-l">Spielfreude</div></div>
+    </div>
   </div>
 </section>
 
@@ -285,10 +298,10 @@ footer a:hover{color:var(--a2)}
 
 <!-- ÜBER UNS -->
 <section id="about">
+  <div class="about-staff"></div>
   <div class="ctr">
-    <p class="s-eye rv">Wer wir sind</p>
+    <p class="s-label rv">Wer wir sind</p>
     <h2 class="s-ttl rv d1">Das sind wir.</h2>
-    <div class="s-divider rv d2"><span class="s-divider-note">♪</span></div>
     <div class="about-wrap">
       <div class="about-body">
         <p class="rv d2">Wir sind eine leidenschaftliche Blasmusikbesetzung aus dem Schwarzwald-Baar-Kreis – seit 2012 auf Bühnen in ganz Baden-Württemberg und weit darüber hinaus. Ob Polka, Marsch, Schlager oder rockiger Pop mit Gesangseinlagen: Schwansinn bringt echte Energie und Spielfreude auf jede Bühne.</p>
@@ -306,41 +319,38 @@ footer a:hover{color:var(--a2)}
 <!-- GALERIE -->
 <section id="galerie">
   <div class="ctr">
-    <p class="s-eye rv">Impressionen</p>
+    <p class="s-label rv">Impressionen</p>
     <h2 class="s-ttl rv d1">Galerie.</h2>
-    <div class="s-divider rv d2"><span class="s-divider-note">♪</span></div>
-    <div class="g-grid rv d2" id="gg"><div class="db-loading">Lade Galerie…</div></div>
+    <div class="g-grid rv d2" id="gg"><div style="color:var(--m);padding:2rem;text-align:center;grid-column:span 2">Lade Galerie…</div></div>
   </div>
 </section>
 
 <!-- TERMINE -->
 <section id="termine">
   <div class="ctr">
-    <p class="s-eye rv">Wann & Wo</p>
+    <p class="s-label rv">Wann & Wo</p>
     <h2 class="s-ttl rv d1">Termine.</h2>
-    <div class="s-divider rv d2"><span class="s-divider-note">♪</span></div>
     <p class="rv d2" style="color:var(--m);font-size:.92rem;margin-bottom:1.75rem">Kommt vorbei – wir würden uns freuen, euch live zu begeistern!</p>
-    <div class="rv d3" id="evl"><div class="db-loading">Lade Termine…</div></div>
+    <div class="rv d3" id="evl"><div style="color:var(--m);padding:2rem;text-align:center">Lade Termine…</div></div>
   </div>
 </section>
 
 <!-- BESETZUNG -->
 <section id="besetzung">
   <div class="ctr">
-    <p class="s-eye rv">Die Truppe</p>
+    <p class="s-label rv">Die Truppe</p>
     <h2 class="s-ttl rv d1">Unsere Besetzung.</h2>
-    <div class="s-divider rv d2"><span class="s-divider-note">♪</span></div>
     <p class="mc-tap-hint rv d2" id="tapHint">Tipp auf ein Bild um mehr über die Person zu erfahren.</p>
-    <div id="mw"><div class="db-loading">Lade Besetzung…</div></div>
+    <div id="mw"><div style="color:var(--m);padding:2rem;text-align:center">Lade Besetzung…</div></div>
   </div>
 </section>
 
 <!-- KONTAKT -->
 <section id="kontakt">
+  <div class="kontakt-deco"></div>
   <div class="ctr">
-    <p class="s-eye rv">Schreib uns</p>
+    <p class="s-label rv">Schreib uns</p>
     <h2 class="s-ttl rv d1">Tritt mit uns in Kontakt!</h2>
-    <div class="s-divider rv d2"><span class="s-divider-note">♪</span></div>
     <div class="k-wrap">
       <div class="k-info rv d2">
         <p>Ihr plant ein Sommerfest, Jubiläum, Festival oder eine andere Veranstaltung und sucht eine Blaskapelle, die garantiert für Stimmung sorgt? Schreibt uns – wir melden uns schnell und unkompliziert zurück.</p>
@@ -348,9 +358,7 @@ footer a:hover{color:var(--a2)}
         <p style="margin-top:1.25rem;font-size:.85rem;color:var(--m)">📍 Schwarzwald-Baar-Kreis, Baden-Württemberg</p>
       </div>
       <div class="rv d3">
-        <!-- Formspree: Registriere dich auf formspree.io, erstelle ein neues Formular
-             und ersetze DEINE_FORMSPREE_ID mit deiner Form-ID -->
-        <form class="kf" action="mail.php" method="POST" id="kontakt-form" onsubmit="sendForm(event)">
+        <form class="kf" id="kontakt-form" action="mail.php" method="POST" onsubmit="sendForm(event)">
           <div class="frow">
             <div class="fg"><label>Vorname</label><input type="text" name="vorname" placeholder="Max" autocomplete="given-name" required></div>
             <div class="fg"><label>Nachname</label><input type="text" name="nachname" placeholder="Mustermann" autocomplete="family-name"></div>
@@ -366,7 +374,7 @@ footer a:hover{color:var(--a2)}
           </div>
           <div class="fg"><label>Nachricht *</label><textarea name="nachricht" placeholder="Erzählt uns von eurer Veranstaltung – Datum, Ort, Rahmen…" required></textarea></div>
           <button type="submit" class="btn-snd" id="form-btn">Anfrage senden →</button>
-          <p class="form-note" id="form-msg"></p>
+          <p class="form-msg" id="form-msg"></p>
         </form>
       </div>
     </div>
@@ -379,8 +387,8 @@ footer a:hover{color:var(--a2)}
   <p>
     Blaskapelle Schwansinn · Schwarzwald-Baar-Kreis<br>
     <a href="mailto:schwansinn@gmx.com">schwansinn@gmx.com</a><br>
-    <a href="#" onclick="openLegal('impressum');return false;">Impressum</a> ·
-    <a href="#" onclick="openLegal('datenschutz');return false;">Datenschutz</a>
+    <a href="#" onclick="openLegal('impressum');return false">Impressum</a> ·
+    <a href="#" onclick="openLegal('datenschutz');return false">Datenschutz</a>
   </p>
   <p class="ft-copy">© 2026 Blaskapelle Schwansinn</p>
 </footer>
@@ -392,271 +400,182 @@ footer a:hover{color:var(--a2)}
   <div class="lb-cap"><strong id="lbt"></strong><span id="lby"></span></div>
 </div>
 
-<!-- IMPRESSUM/DATENSCHUTZ MODAL -->
+<!-- LEGAL MODAL -->
 <div class="lm-bg" id="lm-bg" onclick="if(event.target===this)closeLegal()">
   <div class="lm">
-    <div class="lm-head">
-      <h2 id="lm-title">Impressum</h2>
-      <span class="lm-close" onclick="closeLegal()">×</span>
-    </div>
+    <div class="lm-head"><h2 id="lm-title"></h2><span class="lm-close" onclick="closeLegal()">×</span></div>
     <div class="lm-body" id="lm-body"></div>
   </div>
 </div>
 
 <script>
-var SB = 'https://hqkpckckzegxqghdchrd.supabase.co';
-var KEY = 'sb_publishable_VgY442Ty_q-Utae-8MMI8A_QPeqUz5U';
-var REG_ORDER = ['Trompete & Flügelhorn','Holzregister','Mittleres Blech & Horn','Maschinenraum & Gesang'];
+var SB='https://hqkpckckzegxqghdchrd.supabase.co';
+var KEY='sb_publishable_VgY442Ty_q-Utae-8MMI8A_QPeqUz5U';
+var REG_ORDER=['Trompete & Flügelhorn','Holzregister','Mittleres Blech & Horn','Maschinenraum & Gesang'];
 
-// ── SUPABASE ──
-async function sbGet(table, params) {
-  var res = await fetch(SB + '/rest/v1/' + table + '?' + params, {
-    headers: { 'apikey': KEY }
-  });
-  if (!res.ok) throw new Error('Fehler');
-  return res.json();
+async function sbGet(t,p){
+  var r=await fetch(SB+'/rest/v1/'+t+'?'+p,{headers:{'apikey':KEY}});
+  if(!r.ok)throw new Error();
+  return r.json();
 }
+function fmtDay(s){return new Date(s+'T12:00:00').getDate();}
+function fmtMonth(s){return new Date(s+'T12:00:00').toLocaleDateString('de-DE',{month:'long'});}
+function fmtYear(s){return new Date(s+'T12:00:00').getFullYear();}
+function isFuture(s){return new Date(s+'T23:59:59')>=new Date();}
+function esc(s){return(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
 
-// ── HELPERS ──
-function fmtDay(iso) { return new Date(iso + 'T12:00:00').getDate(); }
-function fmtMonth(iso) { return new Date(iso + 'T12:00:00').toLocaleDateString('de-DE',{month:'long'}); }
-function fmtYear(iso) { return new Date(iso + 'T12:00:00').getFullYear(); }
-function fmtTime(von, bis) {
-  if (!von) return '';
-  return von + (bis ? ' – ' + bis + ' Uhr' : ' Uhr');
-}
-function daysLeft(iso) { return Math.max(0, Math.ceil((new Date(iso + 'T23:59:59') - new Date()) / 86400000)); }
-function isFuture(iso) { return new Date(iso + 'T23:59:59') >= new Date(); }
-function esc(s) { return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+// Marquee
+var MQS=['Sommerfeste','Jubiläen','Festivals','Stadtfeste','Festzelte','Open-Air-Bühnen','Vereinsfeste','Firmenevents','Kulturveranstaltungen','Konzerte'];
+var mq=[...MQS,...MQS].map(function(s){return'<span>'+s+'</span><span class="dot">♪</span>';}).join('');
+document.getElementById('mqi').innerHTML=mq+mq;
 
-// ── MARQUEE ──
-var MQS = ['Sommerfeste','Jubiläen','Festivals','Stadtfeste','Festzelte','Open-Air-Bühnen','Vereinsfeste','Firmenevents','Kulturveranstaltungen','Konzerte'];
-var mq = [...MQS,...MQS].map(function(s){ return '<span>'+s+'</span><span class="dot">♪</span>'; }).join('');
-document.getElementById('mqi').innerHTML = mq + mq;
-
-// ── GALERIE ──
-async function loadGalerie() {
-  var el = document.getElementById('gg');
-  try {
-    var rows = await sbGet('galerie', 'select=*&order=reihenfolge.asc');
-    if (!rows.length) { el.innerHTML = '<div class="db-empty">Noch keine Bilder vorhanden.</div>'; return; }
-    el.innerHTML = '';
-    rows.forEach(function(p) {
-      var d = document.createElement('div');
-      d.className = 'gi' + (p.breit ? ' w' : '');
-      d.innerHTML = '<img src="' + p.bild_url + '" alt="' + esc(p.titel) + '" loading="lazy"><div class="go"><h4>' + esc(p.titel) + '</h4><span>' + (p.jahr||'') + '</span></div>';
-      d.onclick = function() { olb(p); };
+// Galerie
+async function loadGalerie(){
+  var el=document.getElementById('gg');
+  try{
+    var rows=await sbGet('galerie','select=*&order=reihenfolge.asc');
+    if(!rows.length){el.innerHTML='<div style="color:var(--m);padding:2rem;grid-column:span 2;text-align:center">Noch keine Bilder vorhanden.</div>';return;}
+    el.innerHTML='';
+    rows.forEach(function(p){
+      var d=document.createElement('div');
+      d.className='gi'+(p.breit?' w':'');
+      d.innerHTML='<img src="'+p.bild_url+'" alt="'+esc(p.titel)+'" loading="lazy"><div class="go"><h4>'+esc(p.titel)+'</h4><span>'+(p.jahr||'')+'</span></div>';
+      d.onclick=function(){olb(p);};
       el.appendChild(d);
     });
-  } catch(e) { el.innerHTML = '<div class="db-empty">Galerie konnte nicht geladen werden.</div>'; }
+  }catch(e){el.innerHTML='<div style="color:var(--m);padding:2rem;grid-column:span 2;text-align:center">Galerie konnte nicht geladen werden.</div>';}
 }
 
-// ── LIGHTBOX ──
-function olb(p) {
-  document.getElementById('lbi').src = p.bild_url;
-  document.getElementById('lbt').textContent = p.titel;
-  document.getElementById('lby').textContent = p.jahr || '';
-  document.getElementById('lb').classList.add('o');
-}
-function clb() { document.getElementById('lb').classList.remove('o'); }
-document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { clb(); closeLegal(); } });
+// Lightbox
+function olb(p){document.getElementById('lbi').src=p.bild_url;document.getElementById('lbt').textContent=p.titel;document.getElementById('lby').textContent=p.jahr||'';document.getElementById('lb').classList.add('o');}
+function clb(){document.getElementById('lb').classList.remove('o');}
 
-// ── TERMINE ──
-async function loadTermine() {
-  var el = document.getElementById('evl');
-  try {
-    var rows = await sbGet('termine', 'select=*&order=datum.asc');
-    var future = rows.filter(function(t) { return isFuture(t.datum); });
-    if (!future.length) {
-      el.innerHTML = '<div class="no-ev">Weitere Termine folgen in Kürze – schaut bald wieder rein!</div>';
-      return;
-    }
-    el.innerHTML = future.map(function(t) {
-      var days = daysLeft(t.datum);
-      var cdwn = days > 0
-        ? 'Noch <strong>' + days + '</strong> ' + (days === 1 ? 'Tag' : 'Tage')
-        : '<strong style="color:var(--a)">Heute!</strong>';
-      var maps = t.maps_link || ('https://maps.google.com/?q=' + encodeURIComponent((t.adresse || t.ort || '')));
-      return '<div class="ev-spot">' +
-        '<div class="ev-top-row">' +
-          '<div class="ev-pill"><span class="ev-pill-dot"></span>Demnächst</div>' +
-          '<span class="ev-cdwn">' + cdwn + '</span>' +
-        '</div>' +
-        '<div class="ev-body">' +
-          '<div class="ev-datebox">' +
-            '<div class="ev-bday">' + fmtDay(t.datum) + '.</div>' +
-            '<div class="ev-bmonth">' + fmtMonth(t.datum) + '</div>' +
-            '<div class="ev-byear">' + fmtYear(t.datum) + '</div>' +
-          '</div>' +
-          '<div class="ev-vline"></div>' +
-          '<div class="ev-detail">' +
-            '<h3>' + esc(t.titel) + '</h3>' +
-            '<div class="ev-meta">' +
-              (t.uhrzeit_von ? '<p>🕖 <strong>' + fmtTime(t.uhrzeit_von, t.uhrzeit_bis) + '</strong></p>' : '') +
-              (t.ort ? '<p>📍 <strong>' + esc(t.ort) + '</strong>' + (t.adresse ? '<br><span style="font-size:.82rem;margin-left:1.5rem">' + esc(t.adresse) + '</span>' : '') + '</p>' : '') +
-            '</div>' +
-            (t.eintritt_frei ? '<div class="ev-free-tag">Freier Eintritt</div>' : '') +
-            '<a href="' + maps + '" target="_blank" rel="noopener" class="btn btn-p" style="display:inline-block;margin-top:.25rem">Route planen ↗</a>' +
-          '</div>' +
-        '</div>' +
+// Termine
+async function loadTermine(){
+  var el=document.getElementById('evl');
+  try{
+    var rows=await sbGet('termine','select=*&order=datum.asc');
+    var future=rows.filter(function(t){return isFuture(t.datum);});
+    if(!future.length){el.innerHTML='<div class="no-ev">Weitere Termine folgen in Kürze – schaut bald wieder rein!</div>';return;}
+    el.innerHTML=future.map(function(t){
+      var maps=t.maps_link||('https://maps.google.com/?q='+encodeURIComponent((t.adresse||t.ort||'')));
+      return'<div class="ev-card">'+
+        '<div class="ev-header">'+
+          '<div class="ev-badge"><span class="ev-dot"></span>Demnächst</div>'+
+          (t.eintritt_frei?'<span class="ev-free">Freier Eintritt</span>':'')+
+        '</div>'+
+        '<div class="ev-body">'+
+          '<div class="ev-date-col">'+
+            '<div class="ev-day">'+fmtDay(t.datum)+'.</div>'+
+            '<div class="ev-month">'+fmtMonth(t.datum)+'</div>'+
+            '<div class="ev-year">'+fmtYear(t.datum)+'</div>'+
+          '</div>'+
+          '<div class="ev-info">'+
+            '<div class="ev-title">'+esc(t.titel)+'</div>'+
+            (t.uhrzeit_von?'<div class="ev-detail">🕖 <strong>'+esc(t.uhrzeit_von)+(t.uhrzeit_bis?' – '+esc(t.uhrzeit_bis):'')+' Uhr</strong></div>':'')+
+            (t.ort?'<div class="ev-detail">📍 <strong>'+esc(t.ort)+'</strong>'+(t.adresse?'<span style="color:var(--m)"> · '+esc(t.adresse)+'</span>':'')+'</div>':'')+
+          '</div>'+
+        '</div>'+
+        '<div class="ev-footer">'+
+          '<a href="'+maps+'" target="_blank" rel="noopener" class="btn btn-p" style="font-size:.82rem;padding:.55rem 1.2rem">Route planen ↗</a>'+
+        '</div>'+
       '</div>';
-    }).join('') + '<p class="ev-more">Weitere Auftritte folgen in Kürze. <a href="#kontakt">Schreibt uns</a> für aktuelle Infos!</p>';
-  } catch(e) {
-    el.innerHTML = '<div class="no-ev">Termine konnten nicht geladen werden.</div>';
-  }
+    }).join('')+'<p class="ev-more">Weitere Auftritte folgen in Kürze. <a href="#kontakt">Schreibt uns</a> für aktuelle Infos!</p>';
+  }catch(e){el.innerHTML='<div class="no-ev">Termine konnten nicht geladen werden.</div>';}
 }
 
-// ── MUSIKER ──
-async function loadMusiker() {
-  var el = document.getElementById('mw');
-  try {
-    var rows = await sbGet('musiker', 'select=*&order=reihenfolge.asc');
-    if (!rows.length) { el.innerHTML = '<div class="db-empty">Noch keine Musiker vorhanden.</div>'; return; }
-    var groups = {};
-    rows.forEach(function(m) {
-      var r = m.register || 'Sonstige';
-      if (!groups[r]) groups[r] = [];
-      groups[r].push(m);
-    });
-    var regs = Object.keys(groups).sort(function(a, b) {
-      var ai = REG_ORDER.indexOf(a), bi = REG_ORDER.indexOf(b);
-      return (ai < 0 ? 99 : ai) - (bi < 0 ? 99 : bi);
-    });
-    el.innerHTML = regs.map(function(reg) {
-      var cards = groups[reg].map(function(m) {
-        var ini = m.name.split(' ').map(function(w){return w[0]||'';}).join('').slice(0,2).toUpperCase();
-        return '<div class="mc">' +
-          (m.bild_url ? '<img src="' + m.bild_url + '" alt="' + esc(m.name) + '" loading="lazy">' : '<div class="mc-ph">' + ini + '</div>') +
-          '<div class="mc-b"><div class="mc-n">' + esc(m.name) + '</div><div class="mc-r">' + esc(m.instrument||'') + '</div></div>' +
-          '<div class="mc-ov"><div class="ovn">' + esc(m.name) + '</div><div class="ovd">' + esc(m.beschreibung||'') + '</div></div>' +
+// Musiker
+async function loadMusiker(){
+  var el=document.getElementById('mw');
+  try{
+    var rows=await sbGet('musiker','select=*&order=reihenfolge.asc');
+    if(!rows.length){el.innerHTML='<div style="color:var(--m);padding:2rem;text-align:center">Noch keine Musiker vorhanden.</div>';return;}
+    var groups={};
+    rows.forEach(function(m){var r=m.register||'Sonstige';if(!groups[r])groups[r]=[];groups[r].push(m);});
+    var regs=Object.keys(groups).sort(function(a,b){var ai=REG_ORDER.indexOf(a),bi=REG_ORDER.indexOf(b);return(ai<0?99:ai)-(bi<0?99:bi);});
+    el.innerHTML=regs.map(function(reg){
+      var cards=groups[reg].map(function(m){
+        var ini=m.name.split(' ').map(function(w){return w[0]||'';}).join('').slice(0,2).toUpperCase();
+        return'<div class="mc">'+
+          (m.bild_url?'<img src="'+m.bild_url+'" alt="'+esc(m.name)+'" loading="lazy">':'<div class="mc-ph">'+ini+'</div>')+
+          '<div class="mc-b"><div class="mc-n">'+esc(m.name)+'</div><div class="mc-r">'+esc(m.instrument||'')+'</div></div>'+
+          '<div class="mc-ov"><div class="ovn">'+esc(m.name)+'</div><div class="ovd">'+esc(m.beschreibung||'')+'</div></div>'+
         '</div>';
       }).join('');
-      return '<div class="reg rv"><div class="reg-lbl">' + reg + '</div><div class="mg">' + cards + '</div></div>';
+      return'<div class="reg rv"><div class="reg-lbl">'+reg+'</div><div class="mg">'+cards+'</div></div>';
     }).join('');
-    document.querySelectorAll('#mw .rv').forEach(function(el) { ro.observe(el); });
+    document.querySelectorAll('#mw .rv').forEach(function(e){ro.observe(e);});
     setupTouch();
-  } catch(e) {
-    el.innerHTML = '<div class="db-empty">Besetzung konnte nicht geladen werden.</div>';
-  }
+  }catch(e){el.innerHTML='<div style="color:var(--m);padding:2rem;text-align:center">Besetzung konnte nicht geladen werden.</div>';}
 }
 
-// ── LEGAL MODALS ──
-var LEGAL = {
-  impressum: {
-    title: 'Impressum',
-    html: '<h3>Angaben gemäß § 5 TMG</h3>' +
-      '<p>Stefan Zwerschina<br>Blaskapelle Schwansinn<br>Neuffenstraße 48<br>78056 Villingen-Schwenningen</p>' +
-      '<h3>Kontakt</h3>' +
-      '<p>Telefon: +49 173 3236982<br>E-Mail: <a href="mailto:schwansinn@gmx.de">schwansinn@gmx.de</a></p>' +
-      '<h3>Verbraucherstreitbeilegung</h3>' +
-      '<p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>'
-  },
-  datenschutz: {
-    title: 'Datenschutzerklärung',
-    html: '<h3>1. Datenschutz auf einen Blick</h3>' +
-      '<p>Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit euren personenbezogenen Daten passiert, wenn ihr unsere Website besucht.</p>' +
-      '<h3>2. Verantwortlicher</h3>' +
-      '<p>Stefan Zwerschina (Blaskapelle Schwansinn)<br>Neuffenstraße 48<br>78056 Villingen-Schwenningen<br>E-Mail: <a href="mailto:schwansinn@gmx.de">schwansinn@gmx.de</a></p>' +
-      '<h3>3. Datenerfassung auf unserer Website</h3>' +
-      '<p>Beim Besuch unserer Website werden automatisch Informationen in Server-Logfiles gespeichert (Browsertyp, Betriebssystem, IP-Adresse, Uhrzeit). Diese Daten sind nicht bestimmten Personen zuordenbar und werden nicht mit anderen Datenquellen zusammengeführt.</p>' +
-      '<h3>4. Kontaktformular</h3>' +
-      '<p>Wenn ihr uns per Kontaktformular Anfragen zukommen lasst, werden eure Angaben aus dem Anfrageformular inklusive der von euch angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage bei uns gespeichert. Diese Daten geben wir nicht ohne eure Einwilligung weiter.</p>' +
-      '<h3>5. Eure Rechte</h3>' +
-      '<p>Ihr habt jederzeit das Recht auf unentgeltliche Auskunft über eure gespeicherten personenbezogenen Daten sowie das Recht auf Berichtigung, Sperrung oder Löschung dieser Daten. Hierzu sowie zu weiteren Fragen zum Thema Datenschutz könnt ihr euch jederzeit an uns wenden.</p>' +
-      '<h3>6. Externe Dienste</h3>' +
-      '<p>Diese Website nutzt Supabase (supabase.com) zur Datenbankbereitstellung sowie Formspree (formspree.io) zur Verarbeitung von Kontaktanfragen. Diese Dienste verarbeiten Daten gemäß ihren eigenen Datenschutzrichtlinien.</p>'
-  }
-};
+// Legal
+var IMP='<h2>Impressum</h2><h2>Angaben gemäß § 5 TMG</h2><p>Stefan Zwerschina<br>Blaskapelle Schwansinn<br>Neuffenstraße 48<br>78056 Villingen-Schwenningen</p><h2>Kontakt</h2><p>Telefon: 00491733236982<br>E-Mail: <a href="mailto:schwansinn@gmx.de">schwansinn@gmx.de</a></p><h2>Verbraucher­streit­beilegung / Universal­schlichtungs­stelle</h2><p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p><p>Quelle: <a href="https://www.e-recht24.de" target="_blank">e-recht24.de</a></p>';
 
-function openLegal(key) {
-  var data = LEGAL[key];
-  document.getElementById('lm-title').textContent = data.title;
-  document.getElementById('lm-body').innerHTML = data.html;
+var DSE='<h2>Datenschutzerklärung</h2><p>Wir freuen uns sehr über Ihr Interesse an unserem Unternehmen. Datenschutz hat einen besonders hohen Stellenwert für die Geschäftsleitung der Stefan Zwerschina (Blaskapelle Schwansinn). Eine Nutzung der Internetseiten der Stefan Zwerschina (Blaskapelle Schwansinn) ist grundsätzlich ohne jede Angabe personenbezogener Daten möglich. Sofern eine betroffene Person besondere Services unseres Unternehmens über unsere Internetseite in Anspruch nehmen möchte, könnte jedoch eine Verarbeitung personenbezogener Daten erforderlich werden.</p><h2>1. Begriffsbestimmungen</h2><p>Die Datenschutzerklärung der Stefan Zwerschina (Blaskapelle Schwansinn) beruht auf den Begrifflichkeiten, die durch den Europäischen Richtlinien- und Verordnungsgeber beim Erlass der Datenschutz-Grundverordnung (DS-GVO) verwendet wurden.</p><h2>2. Name und Anschrift des Verantwortlichen</h2><p>Stefan Zwerschina (Blaskapelle Schwansinn)<br>Neuffenstraße 48<br>78056 Villingen-Schwenningen<br>Tel.: 00491733236992<br>E-Mail: <a href="mailto:schwansinn@gmx.de">schwansinn@gmx.de</a><br>Website: www.schwansinn.de</p><h2>3. Erfassung allgemeiner Daten und Informationen</h2><p>Die Internetseite der Stefan Zwerschina (Blaskapelle Schwansinn) erfasst mit jedem Aufruf eine Reihe von allgemeinen Daten und Informationen, die in den Logfiles des Servers gespeichert werden (Browsertyp, Betriebssystem, Referrer, IP-Adresse, Datum und Uhrzeit des Zugriffs). Diese Daten werden nicht bestimmten Personen zugeordnet.</p><h2>4. Kontaktmöglichkeit über die Internetseite</h2><p>Sofern eine betroffene Person per E-Mail oder über ein Kontaktformular Kontakt aufnimmt, werden die übermittelten personenbezogenen Daten automatisch gespeichert. Solche Daten werden nicht ohne Einwilligung an Dritte weitergegeben.</p><h2>5. Externe Dienste</h2><p>Diese Website nutzt <strong>Supabase</strong> (supabase.com) zur Bereitstellung von Datenbank- und Speicherdiensten. Supabase verarbeitet dabei technische Daten gemäß der Supabase-Datenschutzrichtlinie (<a href="https://supabase.com/privacy" target="_blank">supabase.com/privacy</a>). Es werden keine personenbezogenen Besucherdaten an Supabase übermittelt.</p><h2>6. Routinemäßige Löschung personenbezogener Daten</h2><p>Der Verantwortliche verarbeitet und speichert personenbezogene Daten nur für den Zeitraum, der zur Erreichung des Speicherungszwecks erforderlich ist. Nach Ablauf werden die Daten routinemäßig gelöscht.</p><h2>7. Rechte der betroffenen Person</h2><p>Jede betroffene Person hat das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch. Zur Geltendmachung dieser Rechte kann sich die betroffene Person jederzeit direkt an uns wenden.</p><h2>8. Rechtsgrundlage der Verarbeitung</h2><p>Art. 6 I lit. a DS-GVO dient als Rechtsgrundlage für Verarbeitungsvorgänge, bei denen eine Einwilligung eingeholt wird. Art. 6 I lit. b DS-GVO gilt für Verarbeitungen zur Vertragserfüllung. Art. 6 I lit. f DS-GVO gilt für Verarbeitungen zur Wahrung berechtigter Interessen.</p><h2>9. Automatisierte Entscheidungsfindung</h2><p>Als verantwortungsbewusstes Unternehmen verzichten wir auf eine automatische Entscheidungsfindung oder ein Profiling.</p>';
+
+function openLegal(k){
+  var d=k==='impressum'?{t:'Impressum',h:IMP}:{t:'Datenschutzerklärung',h:DSE};
+  document.getElementById('lm-title').textContent=d.t;
+  document.getElementById('lm-body').innerHTML=d.h;
   document.getElementById('lm-bg').classList.add('o');
-  document.body.style.overflow = 'hidden';
+  document.body.style.overflow='hidden';
 }
-function closeLegal() {
-  document.getElementById('lm-bg').classList.remove('o');
-  document.body.style.overflow = '';
+function closeLegal(){document.getElementById('lm-bg').classList.remove('o');document.body.style.overflow='';}
+
+// Kontaktformular
+async function sendForm(e){
+  e.preventDefault();
+  var btn=document.getElementById('form-btn');
+  var msg=document.getElementById('form-msg');
+  btn.textContent='Wird gesendet…';btn.disabled=true;msg.textContent='';
+  try{
+    var res=await fetch('mail.php',{method:'POST',body:new FormData(document.getElementById('kontakt-form'))});
+    if(res.ok){msg.style.color='#52c97a';msg.textContent='✓ Nachricht gesendet! Wir melden uns bald.';document.getElementById('kontakt-form').reset();}
+    else throw new Error();
+  }catch(e){msg.style.color='#e05252';msg.textContent='✗ Fehler beim Senden. Bitte schreib uns direkt an schwansinn@gmx.com.';}
+  btn.textContent='Anfrage senden →';btn.disabled=false;
 }
 
-// ── NAV ──
-function tm() {
-  document.getElementById('hbg').classList.toggle('o');
-  document.getElementById('mob').classList.toggle('o');
-  document.body.style.overflow = document.getElementById('mob').classList.contains('o') ? 'hidden' : '';
-}
-function cm() {
-  document.getElementById('hbg').classList.remove('o');
-  document.getElementById('mob').classList.remove('o');
-  document.body.style.overflow = '';
-}
+// Nav
+function tm(){document.getElementById('hbg').classList.toggle('o');document.getElementById('mob').classList.toggle('o');document.body.style.overflow=document.getElementById('mob').classList.contains('o')?'hidden':'';}
+function cm(){document.getElementById('hbg').classList.remove('o');document.getElementById('mob').classList.remove('o');document.body.style.overflow='';}
 
-// ── SCROLL REVEAL ──
-var ro = new IntersectionObserver(function(es) {
-  es.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('in'); ro.unobserve(e.target); } });
-}, { threshold: .08 });
-document.querySelectorAll('.rv').forEach(function(el) { ro.observe(el); });
+// Scroll reveal
+var ro=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');ro.unobserve(e.target);}});},{threshold:.08});
+document.querySelectorAll('.rv').forEach(function(el){ro.observe(el);});
 
-// ── TOUCH MEMBERS ──
-var isTouch = window.matchMedia('(hover:none),(pointer:coarse)').matches;
-function setupTouch() {
-  if (!isTouch) return;
-  document.getElementById('tapHint').style.display = 'block';
-  document.querySelectorAll('.mc').forEach(function(mc) {
-    mc.addEventListener('click', function(e) {
+// Touch
+var isTouch=window.matchMedia('(hover:none),(pointer:coarse)').matches;
+function setupTouch(){
+  if(!isTouch)return;
+  document.getElementById('tapHint').style.display='block';
+  document.querySelectorAll('.mc').forEach(function(mc){
+    mc.addEventListener('click',function(e){
       e.stopPropagation();
-      var was = mc.classList.contains('ta');
-      document.querySelectorAll('.mc.ta').forEach(function(x) { x.classList.remove('ta'); });
-      if (!was) mc.classList.add('ta');
+      var was=mc.classList.contains('ta');
+      document.querySelectorAll('.mc.ta').forEach(function(x){x.classList.remove('ta');});
+      if(!was)mc.classList.add('ta');
     });
   });
-  document.addEventListener('click', function() {
-    document.querySelectorAll('.mc.ta').forEach(function(x) { x.classList.remove('ta'); });
-  });
+  document.addEventListener('click',function(){document.querySelectorAll('.mc.ta').forEach(function(x){x.classList.remove('ta');});});
 }
 
-// ── COUNTER ──
-var co = new IntersectionObserver(function(es) {
-  es.forEach(function(e) {
-    if (!e.isIntersecting) return;
-    var el = e.target, to = +el.dataset.cnt, step = Math.max(2600/to, 20), n = 0;
-    var t = setInterval(function() { n = Math.min(n+1, to); el.textContent = n; if (n >= to) clearInterval(t); }, step);
+// Counter
+var co=new IntersectionObserver(function(es){
+  es.forEach(function(e){
+    if(!e.isIntersecting)return;
+    var el=e.target,to=+el.dataset.cnt,step=Math.max(2600/to,20),n=0;
+    var t=setInterval(function(){n=Math.min(n+1,to);el.textContent=n;if(n>=to)clearInterval(t);},step);
     co.unobserve(el);
   });
-}, { threshold: .5 });
-document.querySelectorAll('[data-cnt]').forEach(function(el) { co.observe(el); });
+},{threshold:.5});
+document.querySelectorAll('[data-cnt]').forEach(function(el){co.observe(el);});
 
-// ── KONTAKTFORMULAR ──
-async function sendForm(e) {
-  e.preventDefault();
-  var btn = document.getElementById('form-btn');
-  var msg = document.getElementById('form-msg');
-  btn.textContent = 'Wird gesendet…';
-  btn.disabled = true;
-  msg.style.color = 'var(--m)';
-  msg.textContent = '';
-  try {
-    var res = await fetch('mail.php', {
-      method: 'POST',
-      body: new FormData(document.getElementById('kontakt-form'))
-    });
-    if (res.ok) {
-      msg.style.color = '#52c97a';
-      msg.textContent = '✓ Nachricht erfolgreich gesendet! Wir melden uns bald.';
-      document.getElementById('kontakt-form').reset();
-    } else {
-      throw new Error();
-    }
-  } catch(e) {
-    msg.style.color = '#e05252';
-    msg.textContent = '✗ Fehler beim Senden. Schreibt uns direkt an schwansinn@gmx.com.';
-  }
-  btn.textContent = 'Anfrage senden →';
-  btn.disabled = false;
-}
+// Keyboard
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){clb();closeLegal();}});
 
-
+// Start
 loadGalerie();
 loadTermine();
 loadMusiker();
