@@ -11,16 +11,23 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.schwansinn.de">
 <link rel="canonical" href="https://www.schwansinn.de">
+<link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+<link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#f9b235">
+<link rel="manifest" href="/favicon/site.webmanifest">
+<meta name="msapplication-TileImage" content="/favicon/mstile-150x150.png">
+<meta name="msapplication-TileColor" content="#09080a">
+<meta name="theme-color" content="#09080a">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"MusicGroup","name":"Blaskapelle Schwansinn","url":"https://www.schwansinn.de","email":"schwansinn@gmx.com","genre":["Blasmusik","Polka","Schlager","Marsch"],"foundingDate":"2012","description":"Blasmusikbesetzung aus dem Schwarzwald-Baar-Kreis mit Auftritten in ganz Baden-Württemberg"}</script>
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --a:#f9b235;--a2:#ffca5a;--a3:rgba(249,178,53,.12);
+  --a:#f9b235;--a2:#ffca5a;
   --bg:#09080a;--s1:#111012;--s2:#1a181c;
   --bd:#28252b;--t:#f2efe8;--m:#8a8690;--r:10px;
-  /* Desktop hero */
   --hero-d:url('https://hqkpckckzegxqghdchrd.supabase.co/storage/v1/object/public/bilder/hero-bg3.jpg');
-  /* Mobile hero: Lade ein Hochformat-Crop hoch und ersetze diese URL */
   --hero-m:url('https://hqkpckckzegxqghdchrd.supabase.co/storage/v1/object/public/bilder/hero-bg3.jpg');
 }
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
@@ -34,7 +41,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
 
 /* ── NAV ── */
-nav{position:fixed;inset:0 0 auto;z-index:999;height:80px;display:flex;align-items:center;justify-content:space-between;padding:0 1.25rem;background:rgba(9,8,10,.93);backdrop-filter:blur(20px);border-bottom:1px solid var(--bd)}
+nav{position:fixed;inset:0 0 auto;z-index:999;height:80px;display:flex;align-items:center;justify-content:space-between;padding:0 1.25rem;background:rgba(9,8,10,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--bd)}
 .nav-logo{height:64px;width:auto;object-fit:contain;filter:drop-shadow(0 1px 6px rgba(0,0,0,.4))}
 .nav-ul{display:none;list-style:none;gap:2rem}
 .nav-ul a{font-size:.8rem;text-transform:uppercase;letter-spacing:.13em;color:#d0ccd8;font-weight:500;transition:color .2s}
@@ -56,31 +63,40 @@ nav{position:fixed;inset:0 0 auto;z-index:999;height:80px;display:flex;align-ite
 .mob-cta{background:var(--a)!important;color:#000!important;padding:.75rem 2.5rem;border-radius:8px;font-size:1.3rem!important}
 
 /* ── HERO ── */
-#hero{
-  min-height:100svh;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  text-align:center;padding:80px 1.5rem 4rem;
-  position:relative;overflow:hidden;background:var(--bg);
-}
-.hero-img{
-  position:absolute;inset:0;
-  background:var(--hero-m) top center / cover no-repeat;
-  opacity:.55;
-}
-.hero-overlay{
-  position:absolute;inset:0;
-  background:linear-gradient(to bottom,rgba(9,8,10,.45) 0%,rgba(9,8,10,.25) 40%,rgba(9,8,10,.78) 100%);
-}
+#hero{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 1.5rem 4rem;position:relative;overflow:hidden;background:var(--bg)}
+.hero-img{position:absolute;inset:0;background:var(--hero-m) top center/cover no-repeat;opacity:.55}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(9,8,10,.45) 0%,rgba(9,8,10,.25) 40%,rgba(9,8,10,.78) 100%)}
 .hero-content{position:relative;z-index:1;width:100%;max-width:680px}
 .h-logo{height:clamp(120px,26vw,210px);width:auto;margin:0 auto 1.5rem;filter:drop-shadow(0 4px 32px rgba(0,0,0,.6))}
 .h-eyebrow{font-size:clamp(.85rem,2.5vw,1.05rem);text-transform:uppercase;letter-spacing:.22em;color:var(--a);margin-bottom:2.25rem;opacity:.95;animation:fadeup .55s ease both .1s;font-weight:600}
 .h-btns{display:flex;flex-wrap:wrap;gap:.7rem;justify-content:center;animation:fadeup .6s ease both .3s;margin-bottom:3.5rem}
 .btn{display:inline-block;padding:.65rem 1.5rem;border-radius:6px;font-weight:700;font-size:.87rem;transition:all .22s;letter-spacing:.02em}
-.btn-p{background:var(--a);color:#000}.btn-p:hover{background:var(--a2);transform:translateY(-2px);box-shadow:0 8px 24px rgba(249,178,53,.25)}
-.btn-o{border:1px solid rgba(255,255,255,.28);color:#fff;backdrop-filter:blur(4px)}.btn-o:hover{border-color:var(--a);color:var(--a);transform:translateY(-2px)}
-.h-stats{display:flex;gap:2.5rem;justify-content:center;animation:fadeup .6s ease both .5s;position:relative;z-index:1}
+.btn-p{background:var(--a);color:#000}
+.btn-p:hover{background:var(--a2);transform:translateY(-2px);box-shadow:0 8px 24px rgba(249,178,53,.25)}
+/* ── LIQUID GLASS BUTTON ── */
+.btn-o{
+  background:rgba(255,255,255,.07);
+  backdrop-filter:blur(16px) saturate(180%);
+  -webkit-backdrop-filter:blur(16px) saturate(180%);
+  border:1px solid rgba(255,255,255,.18);
+  color:#fff;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.14),0 4px 20px rgba(0,0,0,.18);
+}
+.btn-o:hover{background:rgba(249,178,53,.12);border-color:rgba(249,178,53,.5);color:var(--a);transform:translateY(-2px);box-shadow:inset 0 1px 0 rgba(249,178,53,.1),0 8px 24px rgba(0,0,0,.2)}
+/* ── HERO STATS – LIQUID GLASS CARD ── */
+.h-stats{
+  display:flex;gap:2.5rem;justify-content:center;
+  animation:fadeup .6s ease both .5s;position:relative;z-index:1;
+  background:rgba(255,255,255,.05);
+  backdrop-filter:blur(14px) saturate(160%);
+  -webkit-backdrop-filter:blur(14px) saturate(160%);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:14px;
+  padding:1.5rem 2.5rem;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 8px 32px rgba(0,0,0,.2);
+}
 .stat-n{font-size:2.1rem;font-weight:900;color:var(--a);line-height:1;display:block}
-.stat-l{font-size:.67rem;text-transform:uppercase;letter-spacing:.14em;color:rgba(242,239,232,.6);margin-top:.25rem}
+.stat-l{font-size:.67rem;text-transform:uppercase;letter-spacing:.14em;color:rgba(242,239,232,.65);margin-top:.25rem}
 @keyframes fadeup{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
 
 /* ── MARQUEE ── */
@@ -99,7 +115,7 @@ section{padding:5rem 1.25rem}
 .s-label::before{content:'♪';font-size:.85rem}
 .s-ttl{font-size:clamp(1.9rem,5.5vw,2.9rem);font-weight:900;letter-spacing:-.035em;line-height:1.08;margin-bottom:2rem}
 
-/* ── ABOUT ── */
+/* ── ABOUT – Notenlinien ── */
 #about{background:var(--s1);position:relative;overflow:hidden}
 .about-staff{position:absolute;inset:0;pointer-events:none;opacity:.03;background-image:repeating-linear-gradient(transparent,transparent 28px,var(--a) 28px,var(--a) 30px)}
 .about-body p{color:var(--m);line-height:1.9;font-size:.94rem;margin-bottom:1.1rem}
@@ -109,9 +125,9 @@ section{padding:5rem 1.25rem}
 .acard h4{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--a);margin-bottom:.4rem}
 .acard p{font-size:.88rem;color:var(--m);line-height:1.78}
 
-/* ── GALERIE ── */
+/* ── GALERIE – Punktraster (stärker) ── */
 #galerie{background:var(--bg);position:relative;overflow:hidden}
-#galerie::before{content:'';position:absolute;inset:0;pointer-events:none;opacity:.045;background-image:radial-gradient(circle,var(--a) 1.5px,transparent 1.5px);background-size:32px 32px}
+#galerie::before{content:'';position:absolute;inset:0;pointer-events:none;opacity:.085;background-image:radial-gradient(circle,var(--a) 1.5px,transparent 1.5px);background-size:32px 32px}
 .g-grid{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-top:1.5rem}
 .gi{position:relative;aspect-ratio:4/3;overflow:hidden;border-radius:8px;cursor:pointer;background:var(--s2)}
 .gi.w{grid-column:span 2;aspect-ratio:16/7}
@@ -156,8 +172,9 @@ section{padding:5rem 1.25rem}
 .ev-more a{color:var(--a);border-bottom:1px solid rgba(249,178,53,.3)}
 .no-ev{text-align:center;padding:3rem;background:var(--s2);border-radius:var(--r);color:var(--m)}
 
-/* ── BESETZUNG ── */
-#besetzung{background:var(--bg)}
+/* ── BESETZUNG – Taktstriche ── */
+#besetzung{background:var(--bg);position:relative;overflow:hidden}
+#besetzung::before{content:'';position:absolute;inset:0;pointer-events:none;opacity:.032;background-image:repeating-linear-gradient(90deg,transparent 0,transparent 58px,var(--a) 58px,var(--a) 60px)}
 .reg{margin-bottom:2.75rem}
 .reg-lbl{font-size:.68rem;text-transform:uppercase;letter-spacing:.2em;color:var(--a);display:flex;align-items:center;gap:.75rem;margin-bottom:.9rem}
 .reg-lbl::after{content:'';flex:1;height:1px;background:var(--bd)}
@@ -180,7 +197,7 @@ section{padding:5rem 1.25rem}
 #kontakt{background:var(--s1);position:relative;overflow:hidden}
 .kontakt-deco{position:absolute;top:-80px;right:-80px;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(249,178,53,.05),transparent 70%);pointer-events:none}
 .k-info p{color:var(--m);font-size:.93rem;line-height:1.88;margin-bottom:1.25rem}
-.k-link{display:inline-flex;align-items:center;gap:.6rem;color:var(--a);font-size:.93rem;margin-bottom:.5rem;transition:color .2s}
+.k-link{display:inline-flex;align-items:center;gap:.6rem;color:var(--a);font-size:.93rem;transition:color .2s;margin-bottom:.5rem}
 .k-link:hover{color:var(--a2)}
 .kf{display:grid;gap:.8rem}
 .frow{display:grid;gap:.8rem}
@@ -193,6 +210,13 @@ section{padding:5rem 1.25rem}
 .btn-snd{background:var(--a);color:#000;font-weight:800;font-size:.95rem;border-radius:7px;padding:.88rem;width:100%;transition:background .2s,transform .2s,box-shadow .2s;cursor:pointer;border:none;font-family:inherit}
 .btn-snd:hover{background:var(--a2);transform:translateY(-2px);box-shadow:0 8px 24px rgba(249,178,53,.22)}
 .form-msg{font-size:.8rem;text-align:center;margin-top:.5rem;min-height:1.2rem}
+
+/* ── SOCIAL LINKS ── */
+.social-row{display:flex;gap:.6rem;margin-top:1rem;flex-wrap:wrap}
+.social-btn{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:9px;background:rgba(249,178,53,.07);border:1px solid rgba(249,178,53,.18);color:var(--a);transition:all .22s;flex-shrink:0}
+.social-btn svg{width:18px;height:18px;fill:currentColor;display:block}
+.social-btn:hover{background:rgba(249,178,53,.16);border-color:var(--a);transform:translateY(-2px);box-shadow:0 6px 18px rgba(249,178,53,.15)}
+.ft-social{display:flex;gap:.6rem;justify-content:center;margin:.75rem 0;flex-wrap:wrap}
 
 /* ── FOOTER ── */
 footer{background:#050405;border-top:1px solid var(--bd);padding:3rem 1.25rem;text-align:center}
@@ -213,19 +237,16 @@ footer a:hover{color:var(--a2)}
 .lm-body{padding:1.5rem;overflow-y:auto;font-size:.86rem;color:var(--m);line-height:1.88}
 .lm-body h2{font-size:.9rem;font-weight:700;color:var(--t);margin:1.5rem 0 .5rem;text-transform:uppercase;letter-spacing:.06em}
 .lm-body h2:first-child{margin-top:0}
-.lm-body h3{font-size:.83rem;font-weight:700;color:var(--t);margin:1.25rem 0 .4rem}
 .lm-body p{margin-bottom:.75rem}
-.lm-body ul{padding-left:1.25rem;margin-bottom:.75rem}
-.lm-body li{margin-bottom:.4rem}
 .lm-body a{color:var(--a)}
-
-/* ── MOBILE OVERRIDES ── */
+.lm-loading{color:var(--m);font-size:.85rem;text-align:center;padding:2rem}
 
 /* ── DESKTOP ── */
 @media(min-width:640px){.frow{grid-template-columns:1fr 1fr}}
 @media(min-width:768px){
   nav{padding:0 2.5rem}
-  .nav-logo{height:54px}
+  .nav-logo{height:64px}
+  .nav-ul{display:flex}
   .nav-book{display:inline-block}
   .hbg{display:none}
   section{padding:6.5rem 2rem}
@@ -235,24 +256,16 @@ footer a:hover{color:var(--a2)}
   .k-wrap{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
   .h-stats{gap:5rem}
   .ev-body{gap:1.75rem}
+  .ev-vline{display:block}
   .lm{align-self:center;border-radius:16px;max-height:88vh}
   .lm-bg{align-items:center;padding:1.5rem}
-  /* Desktop hero: vollbild cover mit fixed */
-  .hero-img{
-    background-image:var(--hero-d);
-    background-size:cover;
-    background-position:center;
-    background-attachment:scroll;
-  }
+  .hero-img{background-image:var(--hero-d);background-size:cover;background-position:center;background-attachment:scroll}
 }
-@media(min-width:1024px){
-  .hero-img{background-attachment:fixed}
-}
+@media(min-width:1024px){.hero-img{background-attachment:fixed}}
 </style>
 </head>
 <body>
 
-<!-- MOB MENU -->
 <div class="mob" id="mob">
   <a href="#hero" onclick="cm()">Start</a>
   <a href="#about" onclick="cm()">Über uns</a>
@@ -262,10 +275,9 @@ footer a:hover{color:var(--a2)}
   <a href="#kontakt" class="mob-cta" onclick="cm()">Jetzt buchen</a>
 </div>
 
-<!-- NAV -->
 <nav>
   <a href="#hero">
-    <img class="nav-logo" src="https://hqkpckckzegxqghdchrd.supabase.co/storage/v1/object/public/bilder/Logo-Schwansinn.svg" alt="Blaskapelle Schwansinn" onerror="this.outerHTML='<span class=\'nav-brand\'>Schwansinn</span>'">
+    <img class="nav-logo" src="https://hqkpckckzegxqghdchrd.supabase.co/storage/v1/object/public/bilder/Logo-Schwansinn.svg" alt="Blaskapelle Schwansinn" onerror="this.outerHTML='<span style=\'font-size:1rem;font-weight:900;color:#f9b235\'>Schwansinn</span>'">
   </a>
   <ul class="nav-ul">
     <li><a href="#hero">Start</a></li>
@@ -281,7 +293,6 @@ footer a:hover{color:var(--a2)}
   </div>
 </nav>
 
-<!-- HERO -->
 <section id="hero">
   <div class="hero-img"></div>
   <div class="hero-overlay"></div>
@@ -301,7 +312,6 @@ footer a:hover{color:var(--a2)}
   </div>
 </section>
 
-<!-- MARQUEE -->
 <div class="mq-w" aria-hidden="true">
   <div class="mq-track" id="mq-track">
     <div class="mq-set" id="mq-set-a"></div>
@@ -309,7 +319,6 @@ footer a:hover{color:var(--a2)}
   </div>
 </div>
 
-<!-- ÜBER UNS -->
 <section id="about">
   <div class="about-staff"></div>
   <div class="ctr">
@@ -329,7 +338,6 @@ footer a:hover{color:var(--a2)}
   </div>
 </section>
 
-<!-- GALERIE -->
 <section id="galerie">
   <div class="ctr">
     <p class="s-label rv">Impressionen</p>
@@ -338,7 +346,6 @@ footer a:hover{color:var(--a2)}
   </div>
 </section>
 
-<!-- TERMINE -->
 <section id="termine">
   <div class="ctr">
     <p class="s-label rv">Wann & Wo</p>
@@ -348,7 +355,6 @@ footer a:hover{color:var(--a2)}
   </div>
 </section>
 
-<!-- BESETZUNG -->
 <section id="besetzung">
   <div class="ctr">
     <p class="s-label rv">Die Truppe</p>
@@ -358,7 +364,6 @@ footer a:hover{color:var(--a2)}
   </div>
 </section>
 
-<!-- KONTAKT -->
 <section id="kontakt">
   <div class="kontakt-deco"></div>
   <div class="ctr">
@@ -368,7 +373,9 @@ footer a:hover{color:var(--a2)}
       <div class="k-info rv d2">
         <p>Ihr plant ein Sommerfest, Jubiläum, Festival oder eine andere Veranstaltung und sucht eine Blaskapelle, die garantiert für Stimmung sorgt? Schreibt uns – wir melden uns schnell und unkompliziert zurück.</p>
         <a class="k-link" href="mailto:schwansinn@gmx.com">✉ schwansinn@gmx.com</a>
-        <p style="margin-top:1.25rem;font-size:.85rem;color:var(--m)">📍 Schwarzwald-Baar-Kreis, Baden-Württemberg</p>
+        <p style="margin-top:1rem;font-size:.85rem;color:var(--m)">📍 Schwarzwald-Baar-Kreis, Baden-Württemberg</p>
+        <!-- Social Links Kontakt -->
+        <div class="social-row" id="social-kontakt"></div>
       </div>
       <div class="rv d3">
         <form class="kf" id="kontakt-form" action="mail.php" method="POST" onsubmit="sendForm(event)">
@@ -394,9 +401,10 @@ footer a:hover{color:var(--a2)}
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <img class="ft-logo" src="https://hqkpckckzegxqghdchrd.supabase.co/storage/v1/object/public/bilder/Logo-Schwansinn.svg" alt="Blaskapelle Schwansinn" onerror="this.style.display='none'">
+  <!-- Social Links Footer -->
+  <div class="ft-social" id="social-footer"></div>
   <p>
     Blaskapelle Schwansinn · Schwarzwald-Baar-Kreis<br>
     <a href="mailto:schwansinn@gmx.com">schwansinn@gmx.com</a><br>
@@ -406,14 +414,12 @@ footer a:hover{color:var(--a2)}
   <p class="ft-copy">© 2026 Blaskapelle Schwansinn</p>
 </footer>
 
-<!-- LIGHTBOX -->
 <div class="lb" id="lb" onclick="clb()">
   <span class="lb-x" onclick="clb()">×</span>
   <img id="lbi" src="" alt="">
   <div class="lb-cap"><strong id="lbt"></strong><span id="lby"></span></div>
 </div>
 
-<!-- LEGAL MODAL -->
 <div class="lm-bg" id="lm-bg" onclick="if(event.target===this)closeLegal()">
   <div class="lm">
     <div class="lm-head"><h2 id="lm-title"></h2><span class="lm-close" onclick="closeLegal()">×</span></div>
@@ -422,13 +428,39 @@ footer a:hover{color:var(--a2)}
 </div>
 
 <script>
-var SB='https://hqkpckckzegxqghdchrd.supabase.co';
-var KEY='sb_publishable_VgY442Ty_q-Utae-8MMI8A_QPeqUz5U';
-var REG_ORDER=['Trompete & Flügelhorn','Holzregister','Mittleres Blech & Horn','Maschinenraum & Gesang'];
+var SB  = 'https://hqkpckckzegxqghdchrd.supabase.co';
+var KEY = 'sb_publishable_VgY442Ty_q-Utae-8MMI8A_QPeqUz5U';
+var REG_ORDER = ['Trompete & Flügelhorn','Holzregister','Mittleres Blech & Horn','Maschinenraum & Gesang'];
 
+// ── SOCIAL MEDIA ──
+// Neue Plattform hinzufügen: einfach ein weiteres Objekt ins Array eintragen
+var SOCIALS = [
+  {
+    name: 'Instagram',
+    url: 'https://www.instagram.com/blaskapelle.schwansinn?igsh=MTN5eHZ6d2N3cGdtMQ==',
+    svg: '<svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>'
+  },
+  {
+    name: 'Facebook',
+    url: 'https://www.facebook.com/share/18ZH4bzfvW/?mibextid=wwXIfr',
+    svg: '<svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>'
+  },
+  // Weitere Plattformen hier hinzufügen, z.B.:
+  // { name: 'YouTube', url: 'https://youtube.com/@...', svg: '<svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>' },
+];
+
+function renderSocials() {
+  var html = SOCIALS.map(function(s) {
+    return '<a href="'+s.url+'" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="'+s.name+'" title="'+s.name+'">'+s.svg+'</a>';
+  }).join('');
+  var els = document.querySelectorAll('#social-footer, #social-kontakt');
+  els.forEach(function(el) { el.innerHTML = html; });
+}
+
+// ── SUPABASE ──
 async function sbGet(t,p){
   var r=await fetch(SB+'/rest/v1/'+t+'?'+p,{headers:{'apikey':KEY}});
-  if(!r.ok)throw new Error();
+  if(!r.ok) throw new Error();
   return r.json();
 }
 function fmtDay(s){return new Date(s+'T12:00:00').getDate();}
@@ -437,14 +469,11 @@ function fmtYear(s){return new Date(s+'T12:00:00').getFullYear();}
 function isFuture(s){return new Date(s+'T23:59:59')>=new Date();}
 function esc(s){return(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
 
-// ── MARQUEE (robust) ──
+// ── MARQUEE ──
 var MQS=['Sommerfeste','Jubiläen','Festivals','Stadtfeste','Festzelte','Open-Air-Bühnen','Vereinsfeste','Firmenevents','Kulturveranstaltungen','Konzerte'];
-function buildMqHTML(){
-  return MQS.map(function(s){return'<span>'+s+'</span><span class="dot">♪</span>';}).join('');
-}
-document.getElementById('mq-set-a').innerHTML=buildMqHTML();
-document.getElementById('mq-set-b').innerHTML=buildMqHTML();
-// Restart animation on visibility change (fixes tab-switch glitch)
+function buildMq(){return MQS.map(function(s){return'<span>'+s+'</span><span class="dot">♪</span>';}).join('');}
+document.getElementById('mq-set-a').innerHTML=buildMq();
+document.getElementById('mq-set-b').innerHTML=buildMq();
 document.addEventListener('visibilitychange',function(){
   var t=document.getElementById('mq-track');
   if(!document.hidden){t.style.animation='none';requestAnimationFrame(function(){t.style.animation='';});}
@@ -466,8 +495,6 @@ async function loadGalerie(){
     });
   }catch(e){el.innerHTML='<div style="color:var(--m);padding:2rem;grid-column:span 2;text-align:center">Galerie konnte nicht geladen werden.</div>';}
 }
-
-// ── LIGHTBOX ──
 function olb(p){document.getElementById('lbi').src=p.bild_url;document.getElementById('lbt').textContent=p.titel;document.getElementById('lby').textContent=p.jahr||'';document.getElementById('lb').classList.add('o');}
 function clb(){document.getElementById('lb').classList.remove('o');}
 
@@ -487,6 +514,7 @@ async function loadTermine(){
         '<div class="ev-header">'+(i===0?'<div class="ev-badge"><span class="ev-dot"></span>Demnächst</div>':'<div></div>')+(t.eintritt_frei?'<span class="ev-free">Freier Eintritt</span>':'')+'</div>'+
         '<div class="ev-body">'+
           '<div class="ev-date-col"><div class="ev-day">'+fmtDay(t.datum)+'.</div><div class="ev-month">'+fmtMonth(t.datum)+'</div><div class="ev-year">'+fmtYear(t.datum)+'</div></div>'+
+          '<div style="width:1px;background:var(--bd);align-self:stretch;flex-shrink:0;display:none" class="ev-vline"></div>'+
           '<div class="ev-info"><div class="ev-title">'+esc(t.titel)+'</div>'+zeitHtml+ortHtml+adrHtml+'</div>'+
         '</div>'+
         '<div class="ev-footer"><a href="'+maps+'" target="_blank" rel="noopener" class="btn btn-p" style="font-size:.82rem;padding:.52rem 1.15rem">Route planen ↗</a></div>'+
@@ -516,21 +544,27 @@ async function loadMusiker(){
   }catch(e){el.innerHTML='<div style="color:var(--m);padding:2rem;text-align:center">Besetzung konnte nicht geladen werden.</div>';}
 }
 
-// ── LEGAL ──
-var IMP='<h2>Impressum</h2><h2>Angaben gemäß § 5 TMG</h2><p>Stefan Zwerschina<br>Blaskapelle Schwansinn<br>Neuffenstraße 48<br>78056 Villingen-Schwenningen</p><h2>Kontakt</h2><p>Telefon: 00491733236982<br>E-Mail: <a href="mailto:schwansinn@gmx.de">schwansinn@gmx.de</a></p><h2>Verbraucher­streit­beilegung / Universal­schlichtungs­stelle</h2><p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p><p>Quelle: <a href="https://www.e-recht24.de" target="_blank">e-recht24.de</a></p>';
-
-var DSE='<h2>Datenschutzerklärung</h2><p>Wir freuen uns sehr über Ihr Interesse an unserem Unternehmen. Datenschutz hat einen besonders hohen Stellenwert für die Geschäftsleitung der Stefan Zwerschina (Blaskapelle Schwansinn). Eine Nutzung der Internetseiten der Stefan Zwerschina (Blaskapelle Schwansinn) ist grundsätzlich ohne jede Angabe personenbezogener Daten möglich. Sofern eine betroffene Person besondere Services unseres Unternehmens über unsere Internetseite in Anspruch nehmen möchte, könnte jedoch eine Verarbeitung personenbezogener Daten erforderlich werden. Ist die Verarbeitung personenbezogener Daten erforderlich und besteht für eine solche Verarbeitung keine gesetzliche Grundlage, holen wir generell eine Einwilligung der betroffenen Person ein.</p><h2>1. Begriffsbestimmungen</h2><p>Die Datenschutzerklärung der Stefan Zwerschina (Blaskapelle Schwansinn) beruht auf den Begrifflichkeiten, die durch den Europäischen Richtlinien- und Verordnungsgeber beim Erlass der Datenschutz-Grundverordnung (DS-GVO) verwendet wurden. Unsere Datenschutzerklärung soll sowohl für die Öffentlichkeit als auch für unsere Kunden und Geschäftspartner einfach lesbar und verständlich sein.</p><h2>2. Name und Anschrift des Verantwortlichen</h2><p>Stefan Zwerschina (Blaskapelle Schwansinn)<br>Neuffenstraße 48<br>78056 Villingen-Schwenningen<br>Deutschland<br>Tel.: 00491733236992<br>E-Mail: <a href="mailto:schwansinn@gmx.de">schwansinn@gmx.de</a><br>Website: www.schwansinn.de</p><h2>3. Erfassung von allgemeinen Daten und Informationen</h2><p>Die Internetseite der Stefan Zwerschina (Blaskapelle Schwansinn) erfasst mit jedem Aufruf der Internetseite durch eine betroffene Person oder ein automatisiertes System eine Reihe von allgemeinen Daten und Informationen. Diese allgemeinen Daten und Informationen werden in den Logfiles des Servers gespeichert. Erfasst werden können die (1) verwendeten Browsertypen und Versionen, (2) das vom zugreifenden System verwendete Betriebssystem, (3) die Internetseite, von welcher ein zugreifendes System auf unsere Internetseite gelangt (sogenannte Referrer), (4) die Unterwebseiten, (5) das Datum und die Uhrzeit eines Zugriffs, (6) eine Internet-Protokoll-Adresse (IP-Adresse), (7) der Internet-Service-Provider des zugreifenden Systems.</p><h2>4. Kontaktmöglichkeit über die Internetseite</h2><p>Die Internetseite enthält Angaben, die eine schnelle elektronische Kontaktaufnahme ermöglichen. Sofern eine betroffene Person per E-Mail oder über ein Kontaktformular Kontakt aufnimmt, werden die übermittelten personenbezogenen Daten automatisch gespeichert. Solche auf freiwilliger Basis übermittelten personenbezogenen Daten werden für Zwecke der Bearbeitung oder der Kontaktaufnahme gespeichert. Es erfolgt keine Weitergabe dieser personenbezogenen Daten an Dritte.</p><h2>5. Externe Dienste (Supabase)</h2><p>Diese Website nutzt <strong>Supabase</strong> (supabase.com) zur Bereitstellung von Datenbank- und Dateispeicherdiensten. Supabase verarbeitet dabei technische Anfragedaten gemäß der Supabase-Datenschutzrichtlinie, einsehbar unter <a href="https://supabase.com/privacy" target="_blank">supabase.com/privacy</a>. Es werden keine personenbezogenen Daten der Websitebesucher an Supabase übermittelt.</p><h2>6. Routinemäßige Löschung und Sperrung von personenbezogenen Daten</h2><p>Der für die Verarbeitung Verantwortliche verarbeitet und speichert personenbezogene Daten der betroffenen Person nur für den Zeitraum, der zur Erreichung des Speicherungszwecks erforderlich ist oder sofern dies durch den Europäischen Richtlinien- und Verordnungsgeber oder einen anderen Gesetzgeber in Gesetzen oder Vorschriften vorgesehen wurde. Entfällt der Speicherungszweck oder läuft eine vorgeschriebene Speicherfrist ab, werden die personenbezogenen Daten routinemäßig gesperrt oder gelöscht.</p><h2>7. Rechte der betroffenen Person</h2><p>Jede betroffene Person hat das Recht auf Auskunft, Berichtigung, Löschung (Recht auf Vergessen werden), Einschränkung der Verarbeitung, Datenübertragbarkeit sowie Widerspruch. Zur Geltendmachung dieser Rechte kann sich die betroffene Person jederzeit direkt an uns wenden.</p><h2>8. Rechtsgrundlage der Verarbeitung</h2><p>Art. 6 I lit. a DS-GVO dient als Rechtsgrundlage für Verarbeitungsvorgänge, bei denen eine Einwilligung eingeholt wird. Art. 6 I lit. b DS-GVO gilt für Verarbeitungen zur Vertragserfüllung. Art. 6 I lit. f DS-GVO gilt für Verarbeitungen zur Wahrung berechtigter Interessen.</p><h2>9. Automatisierte Entscheidungsfindung</h2><p>Als verantwortungsbewusstes Unternehmen verzichten wir auf eine automatische Entscheidungsfindung oder ein Profiling.</p>';
-
-function openLegal(k){
-  var d=k==='impressum'?{t:'Impressum',h:IMP}:{t:'Datenschutzerklärung',h:DSE};
-  document.getElementById('lm-title').textContent=d.t;
-  document.getElementById('lm-body').innerHTML=d.h;
+// ── LEGAL (aus Supabase) ──
+async function openLegal(slug){
+  var title=slug==='impressum'?'Impressum':'Datenschutzerklärung';
+  document.getElementById('lm-title').textContent=title;
+  document.getElementById('lm-body').innerHTML='<div class="lm-loading">Lade…</div>';
   document.getElementById('lm-bg').classList.add('o');
   document.body.style.overflow='hidden';
+  try{
+    var rows=await sbGet('seiten','select=inhalt&slug=eq.'+slug+'&limit=1');
+    if(rows&&rows.length&&rows[0].inhalt){
+      document.getElementById('lm-body').innerHTML=rows[0].inhalt;
+    }else{
+      document.getElementById('lm-body').innerHTML='<p style="color:var(--m)">Inhalt noch nicht hinterlegt. Bitte im Admin-Panel unter Einstellungen → Rechtliches eintragen.</p>';
+    }
+  }catch(e){
+    document.getElementById('lm-body').innerHTML='<p style="color:var(--m)">Inhalt konnte nicht geladen werden.</p>';
+  }
 }
 function closeLegal(){document.getElementById('lm-bg').classList.remove('o');document.body.style.overflow='';}
 
-// ── FORMULAR ──
+// ── KONTAKTFORMULAR ──
 async function sendForm(e){
   e.preventDefault();
   var btn=document.getElementById('form-btn'),msg=document.getElementById('form-msg');
@@ -551,7 +585,7 @@ function cm(){document.getElementById('hbg').classList.remove('o');document.getE
 var ro=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');ro.unobserve(e.target);}});},{threshold:.08});
 document.querySelectorAll('.rv').forEach(function(el){ro.observe(el);});
 
-// ── TOUCH ──
+// ── TOUCH MUSIKER ──
 var isTouch=window.matchMedia('(hover:none),(pointer:coarse)').matches;
 function setupTouch(){
   if(!isTouch)return;
@@ -582,6 +616,7 @@ document.querySelectorAll('[data-cnt]').forEach(function(el){co.observe(el);});
 document.addEventListener('keydown',function(e){if(e.key==='Escape'){clb();closeLegal();}});
 
 // ── START ──
+renderSocials();
 loadGalerie();
 loadTermine();
 loadMusiker();
