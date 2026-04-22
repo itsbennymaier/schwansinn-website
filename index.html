@@ -18,8 +18,10 @@
   --a:#f9b235;--a2:#ffca5a;--a3:rgba(249,178,53,.12);
   --bg:#09080a;--s1:#111012;--s2:#1a181c;
   --bd:#28252b;--t:#f2efe8;--m:#8a8690;--r:10px;
-  --logo: url('https://hqkpckckzegxqghdchrd.supabase.co/storage/v1/object/public/bilder/Logo-Schwansinn.svg');
-  --hero: url('https://hqkpckckzegxqghdchrd.supabase.co/storage/v1/object/public/bilder/hero-bg3.jpg');
+  /* Desktop hero */
+  --hero-d:url('https://hqkpckckzegxqghdchrd.supabase.co/storage/v1/object/public/bilder/hero-bg3.jpg');
+  /* Mobile hero: Lade ein Hochformat-Crop hoch und ersetze diese URL */
+  --hero-m:url('https://hqkpckckzegxqghdchrd.supabase.co/storage/v1/object/public/bilder/hero-bg3.jpg');
 }
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{background:var(--bg);color:var(--t);font-family:'Segoe UI',system-ui,sans-serif;line-height:1.65;overflow-x:hidden;font-size:16px}
@@ -33,12 +35,12 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 
 /* ── NAV ── */
 nav{position:fixed;inset:0 0 auto;z-index:999;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 1.25rem;background:rgba(9,8,10,.93);backdrop-filter:blur(20px);border-bottom:1px solid var(--bd)}
-.nav-logo{height:44px;width:auto;object-fit:contain}
+.nav-brand{font-size:.85rem;font-weight:900;color:var(--a);letter-spacing:.12em;text-transform:uppercase}
 .nav-ul{display:none;list-style:none;gap:2rem}
 .nav-ul a{font-size:.8rem;text-transform:uppercase;letter-spacing:.13em;color:#d0ccd8;font-weight:500;transition:color .2s}
 .nav-ul a:hover{color:var(--a)}
 .nav-r{display:flex;align-items:center;gap:.75rem}
-.nav-book{display:none;background:var(--a);color:#000;font-size:.78rem;font-weight:800;padding:.44rem 1.15rem;border-radius:5px;transition:background .2s;letter-spacing:.04em}
+.nav-book{display:none;background:var(--a);color:#000;font-size:.78rem;font-weight:800;padding:.42rem 1.1rem;border-radius:5px;transition:background .2s;letter-spacing:.04em}
 .nav-book:hover{background:var(--a2)}
 .hbg{display:flex;flex-direction:column;gap:5px;padding:8px}
 .hbg span{display:block;width:22px;height:2px;background:#ddd;border-radius:2px;transition:all .28s}
@@ -62,33 +64,33 @@ nav{position:fixed;inset:0 0 auto;z-index:999;height:64px;display:flex;align-ite
 }
 .hero-img{
   position:absolute;inset:0;
-  background:var(--hero) center center / contain no-repeat;
+  background:var(--hero-m) top center / cover no-repeat;
   opacity:.55;
 }
 .hero-overlay{
   position:absolute;inset:0;
-  background:linear-gradient(to bottom,rgba(9,8,10,.5) 0%,rgba(9,8,10,.3) 40%,rgba(9,8,10,.75) 100%);
+  background:linear-gradient(to bottom,rgba(9,8,10,.45) 0%,rgba(9,8,10,.25) 40%,rgba(9,8,10,.78) 100%);
 }
 .hero-content{position:relative;z-index:1;width:100%;max-width:680px}
-.h-logo{height:clamp(110px,24vw,200px);width:auto;margin:0 auto 1.5rem;filter:drop-shadow(0 4px 32px rgba(0,0,0,.6))}
-.h-eyebrow{font-size:.72rem;text-transform:uppercase;letter-spacing:.25em;color:var(--a);margin-bottom:1rem;opacity:.9;animation:fadeup .55s ease both .1s}
-.h-slogan{font-size:clamp(1rem,3.5vw,1.2rem);color:rgba(242,239,232,.88);max-width:480px;margin:0 auto 2.25rem;animation:fadeup .6s ease both .3s;line-height:1.82;font-style:italic;letter-spacing:.01em}
-.h-btns{display:flex;flex-wrap:wrap;gap:.75rem;justify-content:center;animation:fadeup .6s ease both .46s;margin-bottom:3.5rem}
-.btn{display:inline-block;padding:.78rem 1.8rem;border-radius:6px;font-weight:700;font-size:.9rem;transition:all .22s;letter-spacing:.02em}
+.h-logo{height:clamp(120px,26vw,210px);width:auto;margin:0 auto 1.5rem;filter:drop-shadow(0 4px 32px rgba(0,0,0,.6))}
+.h-eyebrow{font-size:clamp(.85rem,2.5vw,1.05rem);text-transform:uppercase;letter-spacing:.22em;color:var(--a);margin-bottom:2.25rem;opacity:.95;animation:fadeup .55s ease both .1s;font-weight:600}
+.h-btns{display:flex;flex-wrap:wrap;gap:.7rem;justify-content:center;animation:fadeup .6s ease both .3s;margin-bottom:3.5rem}
+.btn{display:inline-block;padding:.65rem 1.5rem;border-radius:6px;font-weight:700;font-size:.87rem;transition:all .22s;letter-spacing:.02em}
 .btn-p{background:var(--a);color:#000}.btn-p:hover{background:var(--a2);transform:translateY(-2px);box-shadow:0 8px 24px rgba(249,178,53,.25)}
 .btn-o{border:1px solid rgba(255,255,255,.28);color:#fff;backdrop-filter:blur(4px)}.btn-o:hover{border-color:var(--a);color:var(--a);transform:translateY(-2px)}
-.h-stats{display:flex;gap:2.5rem;justify-content:center;animation:fadeup .6s ease both .6s;position:relative;z-index:1}
+.h-stats{display:flex;gap:2.5rem;justify-content:center;animation:fadeup .6s ease both .5s;position:relative;z-index:1}
 .stat-n{font-size:2.1rem;font-weight:900;color:var(--a);line-height:1;display:block}
 .stat-l{font-size:.67rem;text-transform:uppercase;letter-spacing:.14em;color:rgba(242,239,232,.6);margin-top:.25rem}
 @keyframes fadeup{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
-@keyframes glow{0%,100%{opacity:.5;transform:scale(1)}50%{opacity:.85;transform:scale(1.06)}}
 
 /* ── MARQUEE ── */
 .mq-w{overflow:hidden;background:var(--s1);border-top:1px solid var(--bd);border-bottom:1px solid var(--bd);padding:.85rem 0}
-.mq-i{display:flex;width:max-content;animation:mq 52s linear infinite}
-.mq-i span{font-size:.7rem;text-transform:uppercase;letter-spacing:.2em;color:var(--m);padding:0 1.5rem;white-space:nowrap}
-.mq-i span.dot{color:var(--a);padding:0}
-@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.mq-track{display:flex;width:max-content;will-change:transform;animation:mq 72s linear infinite}
+.mq-track:hover{animation-play-state:paused}
+.mq-set{display:flex;flex-shrink:0}
+.mq-set span{font-size:.7rem;text-transform:uppercase;letter-spacing:.2em;color:var(--m);padding:0 1.5rem;white-space:nowrap}
+.mq-set span.dot{color:var(--a);padding:0}
+@keyframes mq{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
 /* ── SECTION BASE ── */
 section{padding:5rem 1.25rem}
@@ -96,14 +98,10 @@ section{padding:5rem 1.25rem}
 .s-label{font-size:.68rem;text-transform:uppercase;letter-spacing:.25em;color:var(--a);margin-bottom:.6rem;display:flex;align-items:center;gap:.75rem}
 .s-label::before{content:'♪';font-size:.85rem}
 .s-ttl{font-size:clamp(1.9rem,5.5vw,2.9rem);font-weight:900;letter-spacing:-.035em;line-height:1.08;margin-bottom:2rem}
-.s-rule{width:3rem;height:2px;background:var(--a);border-radius:2px;margin-bottom:2.25rem}
 
 /* ── ABOUT ── */
 #about{background:var(--s1);position:relative;overflow:hidden}
-.about-staff{
-  position:absolute;inset:0;pointer-events:none;opacity:.03;
-  background-image:repeating-linear-gradient(transparent,transparent 28px,var(--a) 28px,var(--a) 30px);
-}
+.about-staff{position:absolute;inset:0;pointer-events:none;opacity:.03;background-image:repeating-linear-gradient(transparent,transparent 28px,var(--a) 28px,var(--a) 30px)}
 .about-body p{color:var(--m);line-height:1.9;font-size:.94rem;margin-bottom:1.1rem}
 .acards{display:grid;gap:.7rem}
 .acard{background:rgba(249,178,53,.04);border:1px solid var(--bd);border-left:3px solid var(--a);border-radius:var(--r);padding:1.2rem 1.4rem;transition:transform .22s,background .22s}
@@ -143,14 +141,15 @@ section{padding:5rem 1.25rem}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.15}}
 .ev-free{font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;color:#000;background:var(--a);padding:.2rem .7rem;border-radius:20px;font-weight:800}
 .ev-body{padding:1.4rem;display:flex;gap:1.25rem;align-items:stretch}
-.ev-date-col{flex-shrink:0;display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:64px;text-align:center;border-right:1px solid var(--bd);padding-right:1.25rem}
+.ev-date-col{flex-shrink:0;display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:68px;text-align:center;border-right:1px solid var(--bd);padding-right:1.25rem}
 .ev-day{font-size:3rem;font-weight:900;color:var(--a);line-height:1}
-.ev-month{font-size:.72rem;text-transform:uppercase;letter-spacing:.15em;color:#bbb;margin-top:.1rem}
-.ev-year{font-size:.72rem;color:var(--m)}
+.ev-month{font-size:.82rem;text-transform:uppercase;letter-spacing:.12em;color:#ccc;margin-top:.15rem}
+.ev-year{font-size:.78rem;color:var(--m);margin-top:.1rem}
 .ev-info{flex:1;display:flex;flex-direction:column;justify-content:center;gap:.45rem}
 .ev-title{font-size:clamp(1rem,3.5vw,1.25rem);font-weight:800;color:var(--t);line-height:1.25}
-.ev-detail{font-size:.86rem;color:#bbb;display:flex;align-items:center;gap:.5rem}
+.ev-detail{font-size:.86rem;color:#bbb;display:flex;align-items:baseline;gap:.5rem;flex-wrap:wrap}
 .ev-detail strong{color:var(--t);font-weight:600}
+.ev-addr{color:var(--m);font-size:.82rem}
 .ev-footer{padding:.9rem 1.4rem;border-top:1px solid var(--bd);display:flex;align-items:center;gap:.75rem;flex-wrap:wrap}
 .ev-more{text-align:center;color:var(--m);font-size:.82rem;margin-top:.5rem}
 .ev-more a{color:var(--a);border-bottom:1px solid rgba(249,178,53,.3)}
@@ -219,11 +218,18 @@ footer a:hover{color:var(--a2)}
 .lm-body li{margin-bottom:.4rem}
 .lm-body a{color:var(--a)}
 
+/* ── MOBILE OVERRIDES ── */
+@media(max-width:767px){
+  /* Termine: Adresse unter Ort */
+  .ev-addr{display:block;margin-left:0;margin-top:.15rem}
+  .ev-detail{flex-direction:column;gap:.2rem}
+  .ev-detail>*{display:flex;align-items:baseline;gap:.4rem}
+}
+
 /* ── DESKTOP ── */
 @media(min-width:640px){.frow{grid-template-columns:1fr 1fr}}
 @media(min-width:768px){
   nav{padding:0 2.5rem}
-  .nav-logo{height:52px}
   .nav-ul{display:flex}
   .nav-book{display:inline-block}
   .hbg{display:none}
@@ -232,11 +238,17 @@ footer a:hover{color:var(--a2)}
   .g-grid{grid-template-columns:repeat(4,1fr)}
   .mg{grid-template-columns:repeat(auto-fill,minmax(170px,1fr))}
   .k-wrap{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
-  .hero-img{background-size:cover;background-attachment:scroll}
   .h-stats{gap:5rem}
   .ev-body{gap:1.75rem}
   .lm{align-self:center;border-radius:16px;max-height:88vh}
   .lm-bg{align-items:center;padding:1.5rem}
+  /* Desktop hero: vollbild cover mit fixed */
+  .hero-img{
+    background-image:var(--hero-d);
+    background-size:cover;
+    background-position:center;
+    background-attachment:scroll;
+  }
 }
 @media(min-width:1024px){
   .hero-img{background-attachment:fixed}
@@ -247,6 +259,7 @@ footer a:hover{color:var(--a2)}
 
 <!-- MOB MENU -->
 <div class="mob" id="mob">
+  <a href="#hero" onclick="cm()">Start</a>
   <a href="#about" onclick="cm()">Über uns</a>
   <a href="#galerie" onclick="cm()">Galerie</a>
   <a href="#termine" onclick="cm()">Termine</a>
@@ -256,10 +269,9 @@ footer a:hover{color:var(--a2)}
 
 <!-- NAV -->
 <nav>
-  <a href="#hero">
-    <img class="nav-logo" src="https://hqkpckckzegxqghdchrd.supabase.co/storage/v1/object/public/bilder/Logo-Schwansinn.svg" alt="Blaskapelle Schwansinn" onerror="this.outerHTML='<span style=\'font-size:1.1rem;font-weight:900;color:#f9b235\'>Schwansinn</span>'">
-  </a>
+  <a href="#hero" class="nav-brand">Schwansinn</a>
   <ul class="nav-ul">
+    <li><a href="#hero">Start</a></li>
     <li><a href="#about">Über uns</a></li>
     <li><a href="#galerie">Galerie</a></li>
     <li><a href="#termine">Termine</a></li>
@@ -280,7 +292,6 @@ footer a:hover{color:var(--a2)}
     <h1 class="sr-only">Blaskapelle Schwansinn – Blasmusik aus dem Schwarzwald-Baar-Kreis</h1>
     <img class="h-logo rv in" src="https://hqkpckckzegxqghdchrd.supabase.co/storage/v1/object/public/bilder/Logo-Schwansinn.svg" alt="Blaskapelle Schwansinn" onerror="this.style.display='none'">
     <p class="h-eyebrow">Blasmusik aus dem Schwarzwald-Baar-Kreis · Seit 2012</p>
-    <p class="h-slogan">Von Polka bis Schlager – wir treffen immer den richtigen Ton!</p>
     <div class="h-btns">
       <a href="#termine" class="btn btn-p">Nächste Auftritte</a>
       <a href="#kontakt" class="btn btn-o">Anfrage senden</a>
@@ -294,7 +305,12 @@ footer a:hover{color:var(--a2)}
 </section>
 
 <!-- MARQUEE -->
-<div class="mq-w" aria-hidden="true"><div class="mq-i" id="mqi"></div></div>
+<div class="mq-w" aria-hidden="true">
+  <div class="mq-track" id="mq-track">
+    <div class="mq-set" id="mq-set-a"></div>
+    <div class="mq-set" id="mq-set-b"></div>
+  </div>
+</div>
 
 <!-- ÜBER UNS -->
 <section id="about">
@@ -424,12 +440,20 @@ function fmtYear(s){return new Date(s+'T12:00:00').getFullYear();}
 function isFuture(s){return new Date(s+'T23:59:59')>=new Date();}
 function esc(s){return(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
 
-// Marquee
+// ── MARQUEE (robust) ──
 var MQS=['Sommerfeste','Jubiläen','Festivals','Stadtfeste','Festzelte','Open-Air-Bühnen','Vereinsfeste','Firmenevents','Kulturveranstaltungen','Konzerte'];
-var mq=[...MQS,...MQS].map(function(s){return'<span>'+s+'</span><span class="dot">♪</span>';}).join('');
-document.getElementById('mqi').innerHTML=mq+mq;
+function buildMqHTML(){
+  return MQS.map(function(s){return'<span>'+s+'</span><span class="dot">♪</span>';}).join('');
+}
+document.getElementById('mq-set-a').innerHTML=buildMqHTML();
+document.getElementById('mq-set-b').innerHTML=buildMqHTML();
+// Restart animation on visibility change (fixes tab-switch glitch)
+document.addEventListener('visibilitychange',function(){
+  var t=document.getElementById('mq-track');
+  if(!document.hidden){t.style.animation='none';requestAnimationFrame(function(){t.style.animation='';});}
+});
 
-// Galerie
+// ── GALERIE ──
 async function loadGalerie(){
   var el=document.getElementById('gg');
   try{
@@ -446,11 +470,11 @@ async function loadGalerie(){
   }catch(e){el.innerHTML='<div style="color:var(--m);padding:2rem;grid-column:span 2;text-align:center">Galerie konnte nicht geladen werden.</div>';}
 }
 
-// Lightbox
+// ── LIGHTBOX ──
 function olb(p){document.getElementById('lbi').src=p.bild_url;document.getElementById('lbt').textContent=p.titel;document.getElementById('lby').textContent=p.jahr||'';document.getElementById('lb').classList.add('o');}
 function clb(){document.getElementById('lb').classList.remove('o');}
 
-// Termine
+// ── TERMINE ──
 async function loadTermine(){
   var el=document.getElementById('evl');
   try{
@@ -459,32 +483,21 @@ async function loadTermine(){
     if(!future.length){el.innerHTML='<div class="no-ev">Weitere Termine folgen in Kürze – schaut bald wieder rein!</div>';return;}
     el.innerHTML=future.map(function(t){
       var maps=t.maps_link||('https://maps.google.com/?q='+encodeURIComponent((t.adresse||t.ort||'')));
+      var ortHtml=t.ort?'<div class="ev-detail"><span>📍</span><div><strong>'+esc(t.ort)+'</strong>'+(t.adresse?'<span class="ev-addr">'+esc(t.adresse)+'</span>':'')+'</div></div>':'';
+      var zeitHtml=t.uhrzeit_von?'<div class="ev-detail"><span>🕖</span><strong>'+esc(t.uhrzeit_von)+(t.uhrzeit_bis?' – '+esc(t.uhrzeit_bis):'')+' Uhr</strong></div>':'';
       return'<div class="ev-card">'+
-        '<div class="ev-header">'+
-          '<div class="ev-badge"><span class="ev-dot"></span>Demnächst</div>'+
-          (t.eintritt_frei?'<span class="ev-free">Freier Eintritt</span>':'')+
-        '</div>'+
+        '<div class="ev-header"><div class="ev-badge"><span class="ev-dot"></span>Demnächst</div>'+(t.eintritt_frei?'<span class="ev-free">Freier Eintritt</span>':'')+'</div>'+
         '<div class="ev-body">'+
-          '<div class="ev-date-col">'+
-            '<div class="ev-day">'+fmtDay(t.datum)+'.</div>'+
-            '<div class="ev-month">'+fmtMonth(t.datum)+'</div>'+
-            '<div class="ev-year">'+fmtYear(t.datum)+'</div>'+
-          '</div>'+
-          '<div class="ev-info">'+
-            '<div class="ev-title">'+esc(t.titel)+'</div>'+
-            (t.uhrzeit_von?'<div class="ev-detail">🕖 <strong>'+esc(t.uhrzeit_von)+(t.uhrzeit_bis?' – '+esc(t.uhrzeit_bis):'')+' Uhr</strong></div>':'')+
-            (t.ort?'<div class="ev-detail">📍 <strong>'+esc(t.ort)+'</strong>'+(t.adresse?'<span style="color:var(--m)"> · '+esc(t.adresse)+'</span>':'')+'</div>':'')+
-          '</div>'+
+          '<div class="ev-date-col"><div class="ev-day">'+fmtDay(t.datum)+'.</div><div class="ev-month">'+fmtMonth(t.datum)+'</div><div class="ev-year">'+fmtYear(t.datum)+'</div></div>'+
+          '<div class="ev-info"><div class="ev-title">'+esc(t.titel)+'</div>'+zeitHtml+ortHtml+'</div>'+
         '</div>'+
-        '<div class="ev-footer">'+
-          '<a href="'+maps+'" target="_blank" rel="noopener" class="btn btn-p" style="font-size:.82rem;padding:.55rem 1.2rem">Route planen ↗</a>'+
-        '</div>'+
+        '<div class="ev-footer"><a href="'+maps+'" target="_blank" rel="noopener" class="btn btn-p" style="font-size:.82rem;padding:.52rem 1.15rem">Route planen ↗</a></div>'+
       '</div>';
     }).join('')+'<p class="ev-more">Weitere Auftritte folgen in Kürze. <a href="#kontakt">Schreibt uns</a> für aktuelle Infos!</p>';
   }catch(e){el.innerHTML='<div class="no-ev">Termine konnten nicht geladen werden.</div>';}
 }
 
-// Musiker
+// ── MUSIKER ──
 async function loadMusiker(){
   var el=document.getElementById('mw');
   try{
@@ -496,11 +509,7 @@ async function loadMusiker(){
     el.innerHTML=regs.map(function(reg){
       var cards=groups[reg].map(function(m){
         var ini=m.name.split(' ').map(function(w){return w[0]||'';}).join('').slice(0,2).toUpperCase();
-        return'<div class="mc">'+
-          (m.bild_url?'<img src="'+m.bild_url+'" alt="'+esc(m.name)+'" loading="lazy">':'<div class="mc-ph">'+ini+'</div>')+
-          '<div class="mc-b"><div class="mc-n">'+esc(m.name)+'</div><div class="mc-r">'+esc(m.instrument||'')+'</div></div>'+
-          '<div class="mc-ov"><div class="ovn">'+esc(m.name)+'</div><div class="ovd">'+esc(m.beschreibung||'')+'</div></div>'+
-        '</div>';
+        return'<div class="mc">'+(m.bild_url?'<img src="'+m.bild_url+'" alt="'+esc(m.name)+'" loading="lazy">':'<div class="mc-ph">'+ini+'</div>')+'<div class="mc-b"><div class="mc-n">'+esc(m.name)+'</div><div class="mc-r">'+esc(m.instrument||'')+'</div></div><div class="mc-ov"><div class="ovn">'+esc(m.name)+'</div><div class="ovd">'+esc(m.beschreibung||'')+'</div></div></div>';
       }).join('');
       return'<div class="reg rv"><div class="reg-lbl">'+reg+'</div><div class="mg">'+cards+'</div></div>';
     }).join('');
@@ -509,10 +518,10 @@ async function loadMusiker(){
   }catch(e){el.innerHTML='<div style="color:var(--m);padding:2rem;text-align:center">Besetzung konnte nicht geladen werden.</div>';}
 }
 
-// Legal
+// ── LEGAL ──
 var IMP='<h2>Impressum</h2><h2>Angaben gemäß § 5 TMG</h2><p>Stefan Zwerschina<br>Blaskapelle Schwansinn<br>Neuffenstraße 48<br>78056 Villingen-Schwenningen</p><h2>Kontakt</h2><p>Telefon: 00491733236982<br>E-Mail: <a href="mailto:schwansinn@gmx.de">schwansinn@gmx.de</a></p><h2>Verbraucher­streit­beilegung / Universal­schlichtungs­stelle</h2><p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p><p>Quelle: <a href="https://www.e-recht24.de" target="_blank">e-recht24.de</a></p>';
 
-var DSE='<h2>Datenschutzerklärung</h2><p>Wir freuen uns sehr über Ihr Interesse an unserem Unternehmen. Datenschutz hat einen besonders hohen Stellenwert für die Geschäftsleitung der Stefan Zwerschina (Blaskapelle Schwansinn). Eine Nutzung der Internetseiten der Stefan Zwerschina (Blaskapelle Schwansinn) ist grundsätzlich ohne jede Angabe personenbezogener Daten möglich. Sofern eine betroffene Person besondere Services unseres Unternehmens über unsere Internetseite in Anspruch nehmen möchte, könnte jedoch eine Verarbeitung personenbezogener Daten erforderlich werden.</p><h2>1. Begriffsbestimmungen</h2><p>Die Datenschutzerklärung der Stefan Zwerschina (Blaskapelle Schwansinn) beruht auf den Begrifflichkeiten, die durch den Europäischen Richtlinien- und Verordnungsgeber beim Erlass der Datenschutz-Grundverordnung (DS-GVO) verwendet wurden.</p><h2>2. Name und Anschrift des Verantwortlichen</h2><p>Stefan Zwerschina (Blaskapelle Schwansinn)<br>Neuffenstraße 48<br>78056 Villingen-Schwenningen<br>Tel.: 00491733236992<br>E-Mail: <a href="mailto:schwansinn@gmx.de">schwansinn@gmx.de</a><br>Website: www.schwansinn.de</p><h2>3. Erfassung allgemeiner Daten und Informationen</h2><p>Die Internetseite der Stefan Zwerschina (Blaskapelle Schwansinn) erfasst mit jedem Aufruf eine Reihe von allgemeinen Daten und Informationen, die in den Logfiles des Servers gespeichert werden (Browsertyp, Betriebssystem, Referrer, IP-Adresse, Datum und Uhrzeit des Zugriffs). Diese Daten werden nicht bestimmten Personen zugeordnet.</p><h2>4. Kontaktmöglichkeit über die Internetseite</h2><p>Sofern eine betroffene Person per E-Mail oder über ein Kontaktformular Kontakt aufnimmt, werden die übermittelten personenbezogenen Daten automatisch gespeichert. Solche Daten werden nicht ohne Einwilligung an Dritte weitergegeben.</p><h2>5. Externe Dienste</h2><p>Diese Website nutzt <strong>Supabase</strong> (supabase.com) zur Bereitstellung von Datenbank- und Speicherdiensten. Supabase verarbeitet dabei technische Daten gemäß der Supabase-Datenschutzrichtlinie (<a href="https://supabase.com/privacy" target="_blank">supabase.com/privacy</a>). Es werden keine personenbezogenen Besucherdaten an Supabase übermittelt.</p><h2>6. Routinemäßige Löschung personenbezogener Daten</h2><p>Der Verantwortliche verarbeitet und speichert personenbezogene Daten nur für den Zeitraum, der zur Erreichung des Speicherungszwecks erforderlich ist. Nach Ablauf werden die Daten routinemäßig gelöscht.</p><h2>7. Rechte der betroffenen Person</h2><p>Jede betroffene Person hat das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch. Zur Geltendmachung dieser Rechte kann sich die betroffene Person jederzeit direkt an uns wenden.</p><h2>8. Rechtsgrundlage der Verarbeitung</h2><p>Art. 6 I lit. a DS-GVO dient als Rechtsgrundlage für Verarbeitungsvorgänge, bei denen eine Einwilligung eingeholt wird. Art. 6 I lit. b DS-GVO gilt für Verarbeitungen zur Vertragserfüllung. Art. 6 I lit. f DS-GVO gilt für Verarbeitungen zur Wahrung berechtigter Interessen.</p><h2>9. Automatisierte Entscheidungsfindung</h2><p>Als verantwortungsbewusstes Unternehmen verzichten wir auf eine automatische Entscheidungsfindung oder ein Profiling.</p>';
+var DSE='<h2>Datenschutzerklärung</h2><p>Wir freuen uns sehr über Ihr Interesse an unserem Unternehmen. Datenschutz hat einen besonders hohen Stellenwert für die Geschäftsleitung der Stefan Zwerschina (Blaskapelle Schwansinn). Eine Nutzung der Internetseiten der Stefan Zwerschina (Blaskapelle Schwansinn) ist grundsätzlich ohne jede Angabe personenbezogener Daten möglich. Sofern eine betroffene Person besondere Services unseres Unternehmens über unsere Internetseite in Anspruch nehmen möchte, könnte jedoch eine Verarbeitung personenbezogener Daten erforderlich werden. Ist die Verarbeitung personenbezogener Daten erforderlich und besteht für eine solche Verarbeitung keine gesetzliche Grundlage, holen wir generell eine Einwilligung der betroffenen Person ein.</p><h2>1. Begriffsbestimmungen</h2><p>Die Datenschutzerklärung der Stefan Zwerschina (Blaskapelle Schwansinn) beruht auf den Begrifflichkeiten, die durch den Europäischen Richtlinien- und Verordnungsgeber beim Erlass der Datenschutz-Grundverordnung (DS-GVO) verwendet wurden. Unsere Datenschutzerklärung soll sowohl für die Öffentlichkeit als auch für unsere Kunden und Geschäftspartner einfach lesbar und verständlich sein.</p><h2>2. Name und Anschrift des Verantwortlichen</h2><p>Stefan Zwerschina (Blaskapelle Schwansinn)<br>Neuffenstraße 48<br>78056 Villingen-Schwenningen<br>Deutschland<br>Tel.: 00491733236992<br>E-Mail: <a href="mailto:schwansinn@gmx.de">schwansinn@gmx.de</a><br>Website: www.schwansinn.de</p><h2>3. Erfassung von allgemeinen Daten und Informationen</h2><p>Die Internetseite der Stefan Zwerschina (Blaskapelle Schwansinn) erfasst mit jedem Aufruf der Internetseite durch eine betroffene Person oder ein automatisiertes System eine Reihe von allgemeinen Daten und Informationen. Diese allgemeinen Daten und Informationen werden in den Logfiles des Servers gespeichert. Erfasst werden können die (1) verwendeten Browsertypen und Versionen, (2) das vom zugreifenden System verwendete Betriebssystem, (3) die Internetseite, von welcher ein zugreifendes System auf unsere Internetseite gelangt (sogenannte Referrer), (4) die Unterwebseiten, (5) das Datum und die Uhrzeit eines Zugriffs, (6) eine Internet-Protokoll-Adresse (IP-Adresse), (7) der Internet-Service-Provider des zugreifenden Systems.</p><h2>4. Kontaktmöglichkeit über die Internetseite</h2><p>Die Internetseite enthält Angaben, die eine schnelle elektronische Kontaktaufnahme ermöglichen. Sofern eine betroffene Person per E-Mail oder über ein Kontaktformular Kontakt aufnimmt, werden die übermittelten personenbezogenen Daten automatisch gespeichert. Solche auf freiwilliger Basis übermittelten personenbezogenen Daten werden für Zwecke der Bearbeitung oder der Kontaktaufnahme gespeichert. Es erfolgt keine Weitergabe dieser personenbezogenen Daten an Dritte.</p><h2>5. Externe Dienste (Supabase)</h2><p>Diese Website nutzt <strong>Supabase</strong> (supabase.com) zur Bereitstellung von Datenbank- und Dateispeicherdiensten. Supabase verarbeitet dabei technische Anfragedaten gemäß der Supabase-Datenschutzrichtlinie, einsehbar unter <a href="https://supabase.com/privacy" target="_blank">supabase.com/privacy</a>. Es werden keine personenbezogenen Daten der Websitebesucher an Supabase übermittelt.</p><h2>6. Routinemäßige Löschung und Sperrung von personenbezogenen Daten</h2><p>Der für die Verarbeitung Verantwortliche verarbeitet und speichert personenbezogene Daten der betroffenen Person nur für den Zeitraum, der zur Erreichung des Speicherungszwecks erforderlich ist oder sofern dies durch den Europäischen Richtlinien- und Verordnungsgeber oder einen anderen Gesetzgeber in Gesetzen oder Vorschriften vorgesehen wurde. Entfällt der Speicherungszweck oder läuft eine vorgeschriebene Speicherfrist ab, werden die personenbezogenen Daten routinemäßig gesperrt oder gelöscht.</p><h2>7. Rechte der betroffenen Person</h2><p>Jede betroffene Person hat das Recht auf Auskunft, Berichtigung, Löschung (Recht auf Vergessen werden), Einschränkung der Verarbeitung, Datenübertragbarkeit sowie Widerspruch. Zur Geltendmachung dieser Rechte kann sich die betroffene Person jederzeit direkt an uns wenden.</p><h2>8. Rechtsgrundlage der Verarbeitung</h2><p>Art. 6 I lit. a DS-GVO dient als Rechtsgrundlage für Verarbeitungsvorgänge, bei denen eine Einwilligung eingeholt wird. Art. 6 I lit. b DS-GVO gilt für Verarbeitungen zur Vertragserfüllung. Art. 6 I lit. f DS-GVO gilt für Verarbeitungen zur Wahrung berechtigter Interessen.</p><h2>9. Automatisierte Entscheidungsfindung</h2><p>Als verantwortungsbewusstes Unternehmen verzichten wir auf eine automatische Entscheidungsfindung oder ein Profiling.</p>';
 
 function openLegal(k){
   var d=k==='impressum'?{t:'Impressum',h:IMP}:{t:'Datenschutzerklärung',h:DSE};
@@ -523,11 +532,10 @@ function openLegal(k){
 }
 function closeLegal(){document.getElementById('lm-bg').classList.remove('o');document.body.style.overflow='';}
 
-// Kontaktformular
+// ── FORMULAR ──
 async function sendForm(e){
   e.preventDefault();
-  var btn=document.getElementById('form-btn');
-  var msg=document.getElementById('form-msg');
+  var btn=document.getElementById('form-btn'),msg=document.getElementById('form-msg');
   btn.textContent='Wird gesendet…';btn.disabled=true;msg.textContent='';
   try{
     var res=await fetch('mail.php',{method:'POST',body:new FormData(document.getElementById('kontakt-form'))});
@@ -537,15 +545,15 @@ async function sendForm(e){
   btn.textContent='Anfrage senden →';btn.disabled=false;
 }
 
-// Nav
+// ── NAV ──
 function tm(){document.getElementById('hbg').classList.toggle('o');document.getElementById('mob').classList.toggle('o');document.body.style.overflow=document.getElementById('mob').classList.contains('o')?'hidden':'';}
 function cm(){document.getElementById('hbg').classList.remove('o');document.getElementById('mob').classList.remove('o');document.body.style.overflow='';}
 
-// Scroll reveal
+// ── SCROLL REVEAL ──
 var ro=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');ro.unobserve(e.target);}});},{threshold:.08});
 document.querySelectorAll('.rv').forEach(function(el){ro.observe(el);});
 
-// Touch
+// ── TOUCH ──
 var isTouch=window.matchMedia('(hover:none),(pointer:coarse)').matches;
 function setupTouch(){
   if(!isTouch)return;
@@ -561,7 +569,7 @@ function setupTouch(){
   document.addEventListener('click',function(){document.querySelectorAll('.mc.ta').forEach(function(x){x.classList.remove('ta');});});
 }
 
-// Counter
+// ── COUNTER ──
 var co=new IntersectionObserver(function(es){
   es.forEach(function(e){
     if(!e.isIntersecting)return;
@@ -572,10 +580,10 @@ var co=new IntersectionObserver(function(es){
 },{threshold:.5});
 document.querySelectorAll('[data-cnt]').forEach(function(el){co.observe(el);});
 
-// Keyboard
+// ── KEYBOARD ──
 document.addEventListener('keydown',function(e){if(e.key==='Escape'){clb();closeLegal();}});
 
-// Start
+// ── START ──
 loadGalerie();
 loadTermine();
 loadMusiker();
